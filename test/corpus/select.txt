@@ -1,0 +1,170 @@
+=================================
+SELECT statement with MIN function
+=================================
+
+SELECT MIN(ID) FROM incidents WHERE updatedtime > '2014-01-01T00:00:00Z'
+
+---
+(source_file
+  (select_statement
+    (select_clause
+      (function_call
+        (identifier)
+        (identifier)))
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (simple_expression
+          (string))))))
+
+
+==================================
+SELECT statement with COUNT function for all fields
+==================================
+
+SELECT COUNT(*) FROM incidents WHERE updatedtime > '2014-01-01T00:00:00Z'
+
+---
+(source_file
+  (select_statement
+    (select_clause
+      (function_call
+        (identifier)))
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (simple_expression
+          (string))))))
+
+
+
+=================================
+SELECT statement with field in Name sub-object in Contact object alias
+=================================
+
+SELECT C.Name.First FROM Contact C;
+
+---
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (alias
+        (identifier)
+        (identifier)))))
+
+==================================
+SELECT statement with bind parameters
+==================================
+
+SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name
+
+---
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (bind_param
+          (identifier))))))
+
+==================================
+SELECT statement with AND logical condition
+==================================
+
+SELECT Contact FROM Contact WHERE Contact.Name.First = 'first_name' AND Contact.Name.Last = 'last_name'
+---
+
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (identifier))
+    (where_clause
+      (logical_condition
+        (comparison_condition
+          (identifier)
+          (simple_expression
+            (string)))
+        (comparison_condition
+          (identifier)
+          (simple_expression
+            (string)))))))
+
+===================================
+SELECT statement with AND logical condiition and bind parameters
+===================================
+
+SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name AND Contact.Name.Last = &last_name
+---
+
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (identifier))
+    (where_clause
+      (logical_condition
+        (comparison_condition
+          (identifier)
+          (bind_param
+            (identifier)))
+        (comparison_condition
+          (identifier)
+          (bind_param
+            (identifier)))))))
+
+
+==========================================
+SELECT statement with BETWEEN condition
+==========================================
+
+SELECT Contact.CreatedTime 
+FROM Contact 
+WHERE Contact.CreatedTime 
+BETWEEN '2016-12-06T06:00:00Z' AND '2016-12-06T06:05:00Z'
+
+---
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (identifier))
+    (where_clause
+      (between_condition
+        (identifier)
+        (simple_expression
+          (string))
+        (simple_expression
+          (string))))))
+
+========================================
+SELECT statement with LIKE condition
+========================================
+
+SELECT Contact FROM Contact WHERE Contact.Name.First LIKE 'Foo%'
+
+---
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (identifier))
+    (where_clause
+      (pattern_matching_condition
+        (identifier)
+        (simple_expression
+          (string))))))

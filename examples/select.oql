@@ -1,0 +1,4 @@
+SELECT S.ServiceProduct.ID, S.PartNumber, S.Name, S.Descriptions.LabelText FROM SalesProduct S WHERE S.PartNumber='{$partNumber}'
+SELECT TOA.Work_Order FROM TOA.Work_Order where TOA.Work_Order.ID = &wkOrderId
+SELECT SalesProduct FROM SalesProduct WHERE ID = %d And Disabled != 1 And Attributes.IsServiceProduct = 1 And AdminVisibleInterfaces.ID = curInterface()
+SELECT Contact.CreatedTime FROM Contact WHERE Contact.CreatedTime BETWEEN '2016-12-06T06:00:00Z' AND '2016-12-06T06:05:00Z'

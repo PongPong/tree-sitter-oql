@@ -1,0 +1,42 @@
+==================================
+SELECT statement with LIMIT only
+==================================
+
+SELECT * FROM incidents WHERE updatedtime > '2014-01-01T00:00:00Z' LIMIT 200
+
+---
+
+(source_file
+  (select_statement
+    (select_clause)
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (simple_expression
+          (string))))
+    (limit_clause
+      (integer))))
+
+==================================
+SELECT statement with LIMIT and OFFSET
+==================================
+
+SELECT * FROM incidents WHERE updatedtime > '2014-01-01T00:00:00Z' LIMIT 200 OFFSET 20
+
+---
+(source_file
+  (select_statement
+    (select_clause)
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (simple_expression
+          (string))))
+    (limit_clause
+      (integer)
+      (integer))))
+
