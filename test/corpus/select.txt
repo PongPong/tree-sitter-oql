@@ -2,7 +2,7 @@
 SELECT statement with MIN function
 =================================
 
-SELECT MIN(ID) FROM incidents WHERE updatedtime > '2014-01-01T00:00:00Z'
+SELECT MIN(ID) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
 
 ---
 (source_file
@@ -21,10 +21,10 @@ SELECT MIN(ID) FROM incidents WHERE updatedtime > '2014-01-01T00:00:00Z'
 
 
 ==================================
-SELECT statement with COUNT function for all fields
+SELECT statement with COUNT(*) function
 ==================================
 
-SELECT COUNT(*) FROM incidents WHERE updatedtime > '2014-01-01T00:00:00Z'
+SELECT COUNT(*) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
 
 ---
 (source_file
@@ -40,6 +40,27 @@ SELECT COUNT(*) FROM incidents WHERE updatedtime > '2014-01-01T00:00:00Z'
         (simple_expression
           (string))))))
 
+
+==================================
+SELECT statement with COUNT(1) function
+==================================
+
+SELECT COUNT(1) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
+---
+(source_file
+  (select_statement
+    (select_clause
+      (function_call
+        (identifier)
+        (simple_expression
+          (integer))))
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (simple_expression
+          (string))))))
 
 
 =================================
