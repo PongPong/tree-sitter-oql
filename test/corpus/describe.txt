@@ -1,7 +1,19 @@
 =================================
 DESCRIBE table
 =================================
+
 describe Incident
+
+---
+(source_file
+  (describe_statement
+    (identifier)))
+
+=================================
+DESCRIBE sub-table
+=================================
+
+describe Incident.Asset
 
 ---
 (source_file
