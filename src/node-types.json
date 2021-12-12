@@ -754,21 +754,6 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "group_by_clause_body",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "group_by_clause_body",
-    "named": true,
-    "fields": {},
-    "children": {
       "multiple": true,
       "required": false,
       "types": [
@@ -1105,21 +1090,6 @@
   },
   {
     "type": "order_by_clause",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "order_by_clause_body",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "order_by_clause_body",
     "named": true,
     "fields": {},
     "children": {

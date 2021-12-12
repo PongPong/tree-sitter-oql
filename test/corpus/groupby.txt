@@ -1,0 +1,61 @@
+==================================
+SELECT statement with GROUP BY one field
+==================================
+SELECT COUNT(1), MAX(ID)
+FROM Incident
+WHERE updatedtime > '2014-01-01T00:00:00Z'
+GROUP BY ID
+
+---
+
+(source_file
+  (select_statement
+    (select_clause
+      (function_call
+        (identifier)
+        (simple_expression
+          (integer)))
+      (function_call
+        (identifier)
+        (identifier)))
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (simple_expression
+          (string))))
+    (group_by_clause
+        (identifier))))
+
+==================================
+SELECT statement with GROUP BY two fields
+==================================
+
+SELECT COUNT(1), MAX(ID)
+FROM Incident
+WHERE updatedtime > '2014-01-01T00:00:00Z'
+GROUP BY ID, updatedtime
+
+---
+
+(source_file
+  (select_statement
+    (select_clause
+      (function_call
+        (identifier)
+        (simple_expression
+          (integer)))
+      (function_call
+        (identifier)
+        (identifier)))
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (simple_expression
+          (string))))
+    (group_by_clause
+      (identifier)
+      (identifier))))

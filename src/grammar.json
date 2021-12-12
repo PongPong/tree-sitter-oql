@@ -413,7 +413,7 @@
         }
       ]
     },
-    "group_by_clause_body": {
+    "_group_by_clause_body": {
       "type": "SEQ",
       "members": [
         {
@@ -461,11 +461,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "group_by_clause_body"
+          "name": "_group_by_clause_body"
         }
       ]
     },
-    "order_by_clause_body": {
+    "_order_by_clause_body": {
       "type": "SEQ",
       "members": [
         {
@@ -513,7 +513,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "order_by_clause_body"
+          "name": "_order_by_clause_body"
         }
       ]
     },
