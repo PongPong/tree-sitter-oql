@@ -1,0 +1,41 @@
+==============================
+SELECT statement with alias
+==============================
+
+SELECT * FROM Incident I WHERE I.updatedtime > '2014-01-01T00:00:00Z'
+
+---
+(source_file
+  (select_statement
+    (select_clause)
+    (from_clause
+      (alias
+        (identifier)
+        (identifier)))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (simple_expression
+          (string))))))
+
+
+==============================
+SELECT statement with AS alias
+==============================
+
+SELECT * FROM Incident AS I WHERE I.updatedtime > '2014-01-01T00:00:00Z'
+
+---
+(source_file
+  (select_statement
+    (select_clause)
+    (from_clause
+      (alias
+        (identifier)
+        (identifier)))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (simple_expression
+          (string))))))
+
