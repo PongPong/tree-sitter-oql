@@ -400,23 +400,6 @@
         }
       ]
     },
-    "select_subexpression": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "select_statement"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
     "where_clause": {
       "type": "SEQ",
       "members": [
@@ -1126,8 +1109,30 @@
             "type": "FIELD",
             "name": "right",
             "content": {
-              "type": "SYMBOL",
-              "name": "_expression"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_expression"
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "("
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_subquery"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": ")"
+                    }
+                  ]
+                }
+              ]
             }
           }
         ]
@@ -1212,7 +1217,7 @@
         }
       ]
     },
-    "between_condition": {
+    "range_condition": {
       "type": "PREC_LEFT",
       "value": "between",
       "content": {
@@ -1259,6 +1264,54 @@
           {
             "type": "SYMBOL",
             "name": "_expression"
+          }
+        ]
+      }
+    },
+    "null_condition": {
+      "type": "PREC_LEFT",
+      "value": "null",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "[iI][sS]"
+            },
+            "named": false,
+            "value": "IS"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[nN][oO][tT]"
+                },
+                "named": false,
+                "value": "NOT"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "[nN][uU][lL][lL]"
+            },
+            "named": false,
+            "value": "NULL"
           }
         ]
       }
@@ -1366,7 +1419,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "between_condition"
+          "name": "range_condition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "null_condition"
         },
         {
           "type": "SYMBOL",
@@ -1507,10 +1564,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "select_subexpression"
-        },
-        {
-          "type": "SYMBOL",
           "name": "_condition"
         }
       ]
@@ -1556,6 +1609,10 @@
       {
         "type": "STRING",
         "value": "between"
+      },
+      {
+        "type": "STRING",
+        "value": "null"
       },
       {
         "type": "STRING",

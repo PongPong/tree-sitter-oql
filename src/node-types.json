@@ -39,10 +39,6 @@
           "named": true
         },
         {
-          "type": "between_condition",
-          "named": true
-        },
-        {
           "type": "binary_expression",
           "named": true
         },
@@ -75,11 +71,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -119,10 +119,6 @@
           "named": true
         },
         {
-          "type": "between_condition",
-          "named": true
-        },
-        {
           "type": "binary_expression",
           "named": true
         },
@@ -155,11 +151,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -183,81 +183,6 @@
         },
         {
           "type": "type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "between_condition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "FALSE",
-          "named": true
-        },
-        {
-          "type": "TRUE",
-          "named": true
-        },
-        {
-          "type": "argument_reference",
-          "named": true
-        },
-        {
-          "type": "array_element_access",
-          "named": true
-        },
-        {
-          "type": "between_condition",
-          "named": true
-        },
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "bind_param",
-          "named": true
-        },
-        {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
-          "type": "field_access",
-          "named": true
-        },
-        {
-          "type": "function_call",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "select_subexpression",
-          "named": true
-        },
-        {
-          "type": "simple_expression",
           "named": true
         }
       ]
@@ -288,10 +213,6 @@
           "named": true
         },
         {
-          "type": "between_condition",
-          "named": true
-        },
-        {
           "type": "binary_expression",
           "named": true
         },
@@ -324,11 +245,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -386,10 +311,6 @@
             "named": true
           },
           {
-            "type": "between_condition",
-            "named": true
-          },
-          {
             "type": "binary_expression",
             "named": true
           },
@@ -422,11 +343,15 @@
             "named": true
           },
           {
+            "type": "null_condition",
+            "named": true
+          },
+          {
             "type": "pattern_matching_condition",
             "named": true
           },
           {
-            "type": "select_subexpression",
+            "type": "range_condition",
             "named": true
           },
           {
@@ -498,10 +423,6 @@
             "named": true
           },
           {
-            "type": "between_condition",
-            "named": true
-          },
-          {
             "type": "binary_expression",
             "named": true
           },
@@ -518,7 +439,15 @@
             "named": true
           },
           {
+            "type": "from_clause",
+            "named": true
+          },
+          {
             "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "group_by_clause",
             "named": true
           },
           {
@@ -530,7 +459,23 @@
             "named": true
           },
           {
+            "type": "join_clause",
+            "named": true
+          },
+          {
+            "type": "limit_clause",
+            "named": true
+          },
+          {
             "type": "logical_condition",
+            "named": true
+          },
+          {
+            "type": "null_condition",
+            "named": true
+          },
+          {
+            "type": "order_by_clause",
             "named": true
           },
           {
@@ -538,11 +483,19 @@
             "named": true
           },
           {
-            "type": "select_subexpression",
+            "type": "range_condition",
+            "named": true
+          },
+          {
+            "type": "select_clause",
             "named": true
           },
           {
             "type": "simple_expression",
+            "named": true
+          },
+          {
+            "type": "where_clause",
             "named": true
           }
         ]
@@ -612,10 +565,6 @@
           "named": true
         },
         {
-          "type": "between_condition",
-          "named": true
-        },
-        {
           "type": "binary_expression",
           "named": true
         },
@@ -648,11 +597,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -703,10 +656,6 @@
             "named": true
           },
           {
-            "type": "between_condition",
-            "named": true
-          },
-          {
             "type": "binary_expression",
             "named": true
           },
@@ -739,11 +688,15 @@
             "named": true
           },
           {
+            "type": "null_condition",
+            "named": true
+          },
+          {
             "type": "pattern_matching_condition",
             "named": true
           },
           {
-            "type": "select_subexpression",
+            "type": "range_condition",
             "named": true
           },
           {
@@ -789,10 +742,6 @@
           "named": true
         },
         {
-          "type": "between_condition",
-          "named": true
-        },
-        {
           "type": "binary_expression",
           "named": true
         },
@@ -825,11 +774,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -864,10 +817,6 @@
           "named": true
         },
         {
-          "type": "between_condition",
-          "named": true
-        },
-        {
           "type": "binary_expression",
           "named": true
         },
@@ -900,11 +849,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -940,10 +893,6 @@
         },
         {
           "type": "array_element_access",
-          "named": true
-        },
-        {
-          "type": "between_condition",
           "named": true
         },
         {
@@ -983,11 +932,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -1053,7 +1006,78 @@
           "named": true
         },
         {
-          "type": "between_condition",
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bind_param",
+          "named": true
+        },
+        {
+          "type": "comparison_condition",
+          "named": true
+        },
+        {
+          "type": "field_access",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "in_condition",
+          "named": true
+        },
+        {
+          "type": "logical_condition",
+          "named": true
+        },
+        {
+          "type": "null_condition",
+          "named": true
+        },
+        {
+          "type": "pattern_matching_condition",
+          "named": true
+        },
+        {
+          "type": "range_condition",
+          "named": true
+        },
+        {
+          "type": "simple_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "null_condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "FALSE",
+          "named": true
+        },
+        {
+          "type": "TRUE",
+          "named": true
+        },
+        {
+          "type": "argument_reference",
+          "named": true
+        },
+        {
+          "type": "array_element_access",
           "named": true
         },
         {
@@ -1089,11 +1113,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -1128,10 +1156,6 @@
           "named": true
         },
         {
-          "type": "between_condition",
-          "named": true
-        },
-        {
           "type": "binary_expression",
           "named": true
         },
@@ -1164,11 +1188,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -1226,7 +1254,78 @@
           "named": true
         },
         {
-          "type": "between_condition",
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bind_param",
+          "named": true
+        },
+        {
+          "type": "comparison_condition",
+          "named": true
+        },
+        {
+          "type": "field_access",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "in_condition",
+          "named": true
+        },
+        {
+          "type": "logical_condition",
+          "named": true
+        },
+        {
+          "type": "null_condition",
+          "named": true
+        },
+        {
+          "type": "pattern_matching_condition",
+          "named": true
+        },
+        {
+          "type": "range_condition",
+          "named": true
+        },
+        {
+          "type": "simple_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "range_condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "FALSE",
+          "named": true
+        },
+        {
+          "type": "TRUE",
+          "named": true
+        },
+        {
+          "type": "argument_reference",
+          "named": true
+        },
+        {
+          "type": "array_element_access",
           "named": true
         },
         {
@@ -1262,11 +1361,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -1305,10 +1408,6 @@
           "named": true
         },
         {
-          "type": "between_condition",
-          "named": true
-        },
-        {
           "type": "binary_expression",
           "named": true
         },
@@ -1341,11 +1440,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
           "named": true
         },
         {
-          "type": "select_subexpression",
+          "type": "range_condition",
           "named": true
         },
         {
@@ -1389,21 +1492,6 @@
         },
         {
           "type": "where_clause",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "select_subexpression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "select_statement",
           "named": true
         }
       ]
@@ -1493,10 +1581,6 @@
             "named": true
           },
           {
-            "type": "between_condition",
-            "named": true
-          },
-          {
             "type": "binary_expression",
             "named": true
           },
@@ -1529,11 +1613,15 @@
             "named": true
           },
           {
+            "type": "null_condition",
+            "named": true
+          },
+          {
             "type": "pattern_matching_condition",
             "named": true
           },
           {
-            "type": "select_subexpression",
+            "type": "range_condition",
             "named": true
           },
           {
@@ -1553,10 +1641,6 @@
       "required": true,
       "types": [
         {
-          "type": "between_condition",
-          "named": true
-        },
-        {
           "type": "comparison_condition",
           "named": true
         },
@@ -1569,7 +1653,15 @@
           "named": true
         },
         {
+          "type": "null_condition",
+          "named": true
+        },
+        {
           "type": "pattern_matching_condition",
+          "named": true
+        },
+        {
+          "type": "range_condition",
           "named": true
         }
       ]
@@ -1693,6 +1785,10 @@
   },
   {
     "type": "INNER",
+    "named": false
+  },
+  {
+    "type": "IS",
     "named": false
   },
   {

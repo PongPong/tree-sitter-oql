@@ -36,6 +36,7 @@ module.exports = grammar({
       'logical_and',
       'logical_or',
       'between',
+      'null',
       'in',
       'like',
       'or',
@@ -107,7 +108,6 @@ module.exports = grammar({
         kw("ON"),
         $._expression,
       ),
-    select_subexpression: $ => seq("(", $.select_statement, ")"),
     where_clause: $ => seq(kw("WHERE"), $._condition),
     _group_by_clause_body: $ => commaSep1($._expression),
     group_by_clause: $ => seq(kw("GROUP BY"), $._group_by_clause_body),
@@ -176,7 +176,10 @@ module.exports = grammar({
         seq(
           field("left", $._expression),
           field("operator", choice("=", "!=", "<>", "<", ">", ">=", "<=")),
-          field("right", $._expression),
+          field("right", choice(
+            $._expression,
+            seq('(', $._subquery, ')')
+          )),
         ),
       ),
     logical_condition: $ =>
@@ -185,8 +188,10 @@ module.exports = grammar({
         prec.left('logical_and', seq($._expression, kw("AND"), $._expression)),
         prec.left('logical_or', seq($._expression, kw("OR"), $._expression)),
       ),
-    between_condition: $ =>
+    range_condition: $ =>
       prec.left('between', seq($._expression, optional(kw('NOT')), kw('BETWEEN'), $._expression, 'AND', $._expression)),
+    null_condition: $ =>
+      prec.left('null', seq($._expression, kw("IS"), optional(kw("NOT")), kw("NULL"))),
     in_condition: $ =>
       prec.left('in', seq($._expression, optional(kw("NOT")), kw("IN"), $.tuple)),
     pattern_matching_condition: $ =>
@@ -196,7 +201,8 @@ module.exports = grammar({
         $.comparison_condition,
         $.logical_condition,
         $.pattern_matching_condition,
-        $.between_condition,
+        $.range_condition,
+        $.null_condition,
         $.in_condition,
       ),
     /** Expressions **/
@@ -226,7 +232,6 @@ module.exports = grammar({
         $.binary_expression,
         $.array_element_access,
         $.argument_reference,
-        $.select_subexpression,
         $._condition,
       ),
   },

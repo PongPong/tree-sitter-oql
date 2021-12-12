@@ -164,7 +164,7 @@ BETWEEN '2016-12-06T06:00:00Z' AND '2016-12-06T06:05:00Z'
     (from_clause
       (identifier))
     (where_clause
-      (between_condition
+      (range_condition
         (identifier)
         (simple_expression
           (string))
@@ -189,3 +189,20 @@ SELECT Contact FROM Contact WHERE Contact.Name.First LIKE 'Foo%'
         (identifier)
         (simple_expression
           (string))))))
+
+======================================
+SELECT statement with IS NOT NULL where clause
+=====================================
+
+SELECT * FROM Incident WHERE updatedtime IS NOT NULL;
+
+---
+(source_file
+  (select_statement
+    (select_clause)
+    (from_clause
+      (identifier))
+    (where_clause
+      (null_condition
+        (identifier)))))
+
