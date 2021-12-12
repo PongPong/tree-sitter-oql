@@ -530,8 +530,12 @@
           "value": "OFFSET"
         },
         {
-          "type": "SYMBOL",
-          "name": "_number"
+          "type": "FIELD",
+          "name": "offset",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_number"
+          }
         }
       ]
     },
@@ -551,8 +555,12 @@
               "value": "LIMIT"
             },
             {
-              "type": "SYMBOL",
-              "name": "_number"
+              "type": "FIELD",
+              "name": "limit",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_number"
+              }
             },
             {
               "type": "CHOICE",
@@ -571,6 +579,40 @@
         {
           "type": "SYMBOL",
           "name": "_offset_clause"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[lL][iI][mM][iI][tT]"
+              },
+              "named": false,
+              "value": "LIMIT"
+            },
+            {
+              "type": "FIELD",
+              "name": "offset",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_number"
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "FIELD",
+              "name": "limit",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_number"
+              }
+            }
+          ]
         }
       ]
     },

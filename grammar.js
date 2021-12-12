@@ -107,10 +107,11 @@ module.exports = grammar({
     group_by_clause: $ => seq(kw("GROUP BY"), $.group_by_clause_body),
     order_by_clause_body: $ => commaSep1($._expression),
     order_by_clause: $ => seq(kw("ORDER BY"), $.order_by_clause_body),
-    _offset_clause: $ => seq(kw("OFFSET"), $._number),
+    _offset_clause: $ => seq(kw("OFFSET"), field("offset", $._number)),
     limit_clause: $ => choice(
-      seq(kw("LIMIT"), $._number, optional($._offset_clause)),
-      $._offset_clause
+      seq(kw("LIMIT"), field("limit", $._number), optional($._offset_clause)),
+      $._offset_clause,
+      seq(kw("LIMIT"), field("offset", $._number), ",", field("limit", $._number)),
     ),
 
     tuple: $ =>
