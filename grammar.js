@@ -84,12 +84,12 @@ module.exports = grammar({
       choice($._expression, alias($._aliased_expression, $.alias)),
     _query_table_expression_clause: $ => choice(
       $._aliasable_expression,
-      // seq('(', $._subquery, ')')
+      seq('(', $._subquery, ')')
     ),
-    from_clause: $ => seq(
+    from_clause: $ => prec.left(seq(
       kw("FROM"),
       commaSep1($._query_table_expression_clause)
-    ),
+    )),
     join_type: _$ =>
       seq(
         choice(
@@ -109,27 +109,20 @@ module.exports = grammar({
         $._expression,
       ),
     where_clause: $ => seq(kw("WHERE"), $._condition),
-    _group_by_clause_body: $ => commaSep1($._expression),
-    group_by_clause: $ => seq(kw("GROUP BY"), $._group_by_clause_body),
-    _order_by_clause_body: $ => commaSep1($._expression),
-    order_by_clause: $ => seq(kw("ORDER BY"), $._order_by_clause_body),
+    having_condition: $ => seq(kw("HAVING", $._condition)),
+    group_by_clause: $ => prec.left(
+      seq(kw("GROUP BY"), commaSep1($._expression), optional($.having_condition))),
+    order_by_clause: $ => prec.left(
+      seq(kw("ORDER BY"), commaSep1($._expression),
+        optional(choice(kw("ASC"), kw("DESC"))))),
     _offset_clause: $ => seq(kw("OFFSET"), field("offset", $._number)),
-    limit_clause: $ => choice(
+    limit_clause: $ => prec.left(choice(
       seq(kw("LIMIT"), field("limit", $._number), optional($._offset_clause)),
       $._offset_clause,
       seq(kw("LIMIT"), field("offset", $._number), ",", field("limit", $._number)),
-    ),
-
-    tuple: $ =>
-      seq(
-        // TODO: maybe collapse with function arguments, but make sure to preserve clarity
-        "(",
-        field("elements", commaSep1($._expression)),
-        ")",
-      ),
+    )),
     parameter: $ => seq($.identifier, $._type),
     parameters: $ => seq("(", commaSep1($.parameter), ")"),
-    _parenthesized_expression: $ => seq("(", $._expression, ")"),
     NULL: _$ => kw("NULL"),
     TRUE: _$ => kw("TRUE"),
     FALSE: _$ => kw("FALSE"),
@@ -182,28 +175,40 @@ module.exports = grammar({
           )),
         ),
       ),
-    logical_condition: $ =>
+    compound_condition: $ =>
       choice(
-        prec.left('logical_not', seq(kw("NOT"), $._expression)),
-        prec.left('logical_and', seq($._expression, kw("AND"), $._expression)),
-        prec.left('logical_or', seq($._expression, kw("OR"), $._expression)),
+        prec.left(seq('(', $._condition, ')')),
+        prec.left('logical_not', seq(kw("NOT"), $._condition)),
+        prec.left('logical_and', seq($._condition, kw("AND"), $._condition)),
+        prec.left('logical_or', seq($._condition, kw("OR"), $._condition)),
       ),
     range_condition: $ =>
       prec.left('between', seq($._expression, optional(kw('NOT')), kw('BETWEEN'), $._expression, 'AND', $._expression)),
     null_condition: $ =>
-      prec.left('null', seq($._expression, kw("IS"), optional(kw("NOT")), kw("NULL"))),
-    in_condition: $ =>
-      prec.left('in', seq($._expression, optional(kw("NOT")), kw("IN"), $.tuple)),
+      prec.left('null', choice(
+        $._expression, seq($._expression, kw("IS"), optional(kw("NOT")), kw("NULL")))),
+    membership_condition: $ =>
+      prec.left('in',
+        choice(
+          seq($._expression, optional(kw("NOT")), kw("IN"),
+            choice(
+              $._expression_list,
+              seq('(', $._subquery, ')')
+            )),
+          seq($._expression_list, optional(kw("NOT")), kw("IN"), '(',
+            commaSep1(choice($._expression_list, $._subquery)), ')')
+        )
+      ),
     pattern_matching_condition: $ =>
       prec.left('like', seq($._expression, optional(kw('NOT')), kw('LIKE'), $._expression)),
     _condition: $ =>
       choice(
         $.comparison_condition,
-        $.logical_condition,
+        $.compound_condition,
         $.pattern_matching_condition,
         $.range_condition,
         $.null_condition,
-        $.in_condition,
+        $.membership_condition,
       ),
     /** Expressions **/
     simple_expression: $ =>
@@ -219,6 +224,7 @@ module.exports = grammar({
         optional(field("arguments", choice("*", commaSep1($._expression)))),
         ")",
       ),
+    _expression_list: $ => seq('(', commaSep1($._expression), ')'),
     _expression: $ =>
       choice(
         $.simple_expression,
@@ -228,11 +234,9 @@ module.exports = grammar({
         $.TRUE,
         $.FALSE,
         $.identifier,
-        $._parenthesized_expression,
         $.binary_expression,
         $.array_element_access,
         $.argument_reference,
-        $._condition,
       ),
   },
 });

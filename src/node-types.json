@@ -47,10 +47,6 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
           "type": "field_access",
           "named": true
         },
@@ -60,26 +56,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
           "named": true
         },
         {
@@ -127,10 +103,6 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
           "type": "field_access",
           "named": true
         },
@@ -140,26 +112,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
           "named": true
         },
         {
@@ -194,7 +146,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "FALSE",
@@ -221,10 +173,6 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
           "type": "field_access",
           "named": true
         },
@@ -234,26 +182,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
           "named": true
         },
         {
@@ -283,17 +211,9 @@
     "named": true,
     "fields": {
       "left": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "FALSE",
             "named": true
@@ -319,10 +239,6 @@
             "named": true
           },
           {
-            "type": "comparison_condition",
-            "named": true
-          },
-          {
             "type": "field_access",
             "named": true
           },
@@ -332,26 +248,6 @@
           },
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "in_condition",
-            "named": true
-          },
-          {
-            "type": "logical_condition",
-            "named": true
-          },
-          {
-            "type": "null_condition",
-            "named": true
-          },
-          {
-            "type": "pattern_matching_condition",
-            "named": true
-          },
-          {
-            "type": "range_condition",
             "named": true
           },
           {
@@ -431,10 +327,6 @@
             "named": true
           },
           {
-            "type": "comparison_condition",
-            "named": true
-          },
-          {
             "type": "field_access",
             "named": true
           },
@@ -455,10 +347,6 @@
             "named": true
           },
           {
-            "type": "in_condition",
-            "named": true
-          },
-          {
             "type": "join_clause",
             "named": true
           },
@@ -467,23 +355,7 @@
             "named": true
           },
           {
-            "type": "logical_condition",
-            "named": true
-          },
-          {
-            "type": "null_condition",
-            "named": true
-          },
-          {
             "type": "order_by_clause",
-            "named": true
-          },
-          {
-            "type": "pattern_matching_condition",
-            "named": true
-          },
-          {
-            "type": "range_condition",
             "named": true
           },
           {
@@ -500,6 +372,41 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "compound_condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comparison_condition",
+          "named": true
+        },
+        {
+          "type": "compound_condition",
+          "named": true
+        },
+        {
+          "type": "membership_condition",
+          "named": true
+        },
+        {
+          "type": "null_condition",
+          "named": true
+        },
+        {
+          "type": "pattern_matching_condition",
+          "named": true
+        },
+        {
+          "type": "range_condition",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -542,7 +449,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "FALSE",
@@ -573,11 +480,11 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
+          "type": "field_access",
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "from_clause",
           "named": true
         },
         {
@@ -585,31 +492,35 @@
           "named": true
         },
         {
+          "type": "group_by_clause",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
         {
-          "type": "in_condition",
+          "type": "join_clause",
           "named": true
         },
         {
-          "type": "logical_condition",
+          "type": "limit_clause",
           "named": true
         },
         {
-          "type": "null_condition",
+          "type": "order_by_clause",
           "named": true
         },
         {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
+          "type": "select_clause",
           "named": true
         },
         {
           "type": "simple_expression",
+          "named": true
+        },
+        {
+          "type": "where_clause",
           "named": true
         }
       ]
@@ -623,14 +534,6 @@
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "*",
             "named": false
@@ -664,10 +567,6 @@
             "named": true
           },
           {
-            "type": "comparison_condition",
-            "named": true
-          },
-          {
             "type": "field_access",
             "named": true
           },
@@ -677,26 +576,6 @@
           },
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "in_condition",
-            "named": true
-          },
-          {
-            "type": "logical_condition",
-            "named": true
-          },
-          {
-            "type": "null_condition",
-            "named": true
-          },
-          {
-            "type": "pattern_matching_condition",
-            "named": true
-          },
-          {
-            "type": "range_condition",
             "named": true
           },
           {
@@ -719,81 +598,6 @@
   },
   {
     "type": "group_by_clause",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "FALSE",
-          "named": true
-        },
-        {
-          "type": "TRUE",
-          "named": true
-        },
-        {
-          "type": "argument_reference",
-          "named": true
-        },
-        {
-          "type": "array_element_access",
-          "named": true
-        },
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "bind_param",
-          "named": true
-        },
-        {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
-          "type": "field_access",
-          "named": true
-        },
-        {
-          "type": "function_call",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
-          "named": true
-        },
-        {
-          "type": "simple_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "in_condition",
     "named": true,
     "fields": {},
     "children": {
@@ -825,10 +629,6 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
           "type": "field_access",
           "named": true
         },
@@ -837,39 +637,24 @@
           "named": true
         },
         {
+          "type": "having_condition",
+          "named": true
+        },
+        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
           "named": true
         },
         {
           "type": "simple_expression",
           "named": true
-        },
-        {
-          "type": "tuple",
-          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "having_condition",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "join_clause",
@@ -904,10 +689,6 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
           "type": "field_access",
           "named": true
         },
@@ -920,27 +701,7 @@
           "named": true
         },
         {
-          "type": "in_condition",
-          "named": true
-        },
-        {
           "type": "join_type",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
           "named": true
         },
         {
@@ -982,7 +743,7 @@
     }
   },
   {
-    "type": "logical_condition",
+    "type": "membership_condition",
     "named": true,
     "fields": {},
     "children": {
@@ -1014,11 +775,11 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
+          "type": "field_access",
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "from_clause",
           "named": true
         },
         {
@@ -1026,31 +787,35 @@
           "named": true
         },
         {
+          "type": "group_by_clause",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
         {
-          "type": "in_condition",
+          "type": "join_clause",
           "named": true
         },
         {
-          "type": "logical_condition",
+          "type": "limit_clause",
           "named": true
         },
         {
-          "type": "null_condition",
+          "type": "order_by_clause",
           "named": true
         },
         {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
+          "type": "select_clause",
           "named": true
         },
         {
           "type": "simple_expression",
+          "named": true
+        },
+        {
+          "type": "where_clause",
           "named": true
         }
       ]
@@ -1062,7 +827,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "FALSE",
@@ -1089,10 +854,6 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
           "type": "field_access",
           "named": true
         },
@@ -1102,26 +863,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
           "named": true
         },
         {
@@ -1137,7 +878,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "FALSE",
@@ -1164,10 +905,6 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
           "type": "field_access",
           "named": true
         },
@@ -1177,26 +914,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
           "named": true
         },
         {
@@ -1235,7 +952,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "FALSE",
@@ -1262,10 +979,6 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
           "type": "field_access",
           "named": true
         },
@@ -1275,26 +988,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
           "named": true
         },
         {
@@ -1310,7 +1003,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "FALSE",
@@ -1337,10 +1030,6 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
           "type": "field_access",
           "named": true
         },
@@ -1350,26 +1039,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
           "named": true
         },
         {
@@ -1416,10 +1085,6 @@
           "named": true
         },
         {
-          "type": "comparison_condition",
-          "named": true
-        },
-        {
           "type": "field_access",
           "named": true
         },
@@ -1429,26 +1094,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "in_condition",
-          "named": true
-        },
-        {
-          "type": "logical_condition",
-          "named": true
-        },
-        {
-          "type": "null_condition",
-          "named": true
-        },
-        {
-          "type": "pattern_matching_condition",
-          "named": true
-        },
-        {
-          "type": "range_condition",
           "named": true
         },
         {
@@ -1545,94 +1190,6 @@
     "fields": {}
   },
   {
-    "type": "tuple",
-    "named": true,
-    "fields": {
-      "elements": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "FALSE",
-            "named": true
-          },
-          {
-            "type": "TRUE",
-            "named": true
-          },
-          {
-            "type": "argument_reference",
-            "named": true
-          },
-          {
-            "type": "array_element_access",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "bind_param",
-            "named": true
-          },
-          {
-            "type": "comparison_condition",
-            "named": true
-          },
-          {
-            "type": "field_access",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "in_condition",
-            "named": true
-          },
-          {
-            "type": "logical_condition",
-            "named": true
-          },
-          {
-            "type": "null_condition",
-            "named": true
-          },
-          {
-            "type": "pattern_matching_condition",
-            "named": true
-          },
-          {
-            "type": "range_condition",
-            "named": true
-          },
-          {
-            "type": "simple_expression",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "where_clause",
     "named": true,
     "fields": {},
@@ -1645,11 +1202,11 @@
           "named": true
         },
         {
-          "type": "in_condition",
+          "type": "compound_condition",
           "named": true
         },
         {
-          "type": "logical_condition",
+          "type": "membership_condition",
           "named": true
         },
         {
@@ -1777,6 +1334,10 @@
   },
   {
     "type": "GROUP_BY",
+    "named": false
+  },
+  {
+    "type": "HAVING",
     "named": false
   },
   {

@@ -99,7 +99,7 @@ SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name
           (identifier))))))
 
 ==================================
-SELECT statement with AND logical condition
+SELECT statement with AND compound condition
 ==================================
 
 SELECT Contact FROM Contact WHERE Contact.Name.First = 'first_name' AND Contact.Name.Last = 'last_name'
@@ -112,7 +112,7 @@ SELECT Contact FROM Contact WHERE Contact.Name.First = 'first_name' AND Contact.
     (from_clause
       (identifier))
     (where_clause
-      (logical_condition
+      (compound_condition
         (comparison_condition
           (identifier)
           (simple_expression
@@ -123,7 +123,7 @@ SELECT Contact FROM Contact WHERE Contact.Name.First = 'first_name' AND Contact.
             (string)))))))
 
 ===================================
-SELECT statement with AND logical condiition and bind parameters
+SELECT statement with AND compound condiition and bind parameters
 ===================================
 
 SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name AND Contact.Name.Last = &last_name
@@ -136,7 +136,7 @@ SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name AND Contact.N
     (from_clause
       (identifier))
     (where_clause
-      (logical_condition
+      (compound_condition
         (comparison_condition
           (identifier)
           (bind_param

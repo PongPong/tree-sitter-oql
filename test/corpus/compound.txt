@@ -1,0 +1,21 @@
+=====================================
+SELECT statement with plus expression
+=====================================
+
+SELECT Contact.ID + 2
+FROM Contact 
+WHERE Contact.CreatedTime 
+---
+
+(source_file
+  (select_statement
+    (select_clause
+      (binary_expression
+        (identifier)
+        (simple_expression
+          (integer))))
+    (from_clause
+      (identifier))
+    (where_clause
+      (null_condition
+        (identifier)))))
