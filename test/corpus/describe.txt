@@ -1,0 +1,9 @@
+=================================
+DESCRIBE table
+=================================
+describe Incident
+
+---
+(source_file
+  (describe_statement
+    (identifier)))

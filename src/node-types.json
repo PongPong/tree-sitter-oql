@@ -550,6 +550,21 @@
     }
   },
   {
+    "type": "describe_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "field_access",
     "named": true,
     "fields": {},
@@ -1426,6 +1441,10 @@
       "required": false,
       "types": [
         {
+          "type": "describe_statement",
+          "named": true
+        },
+        {
           "type": "select_statement",
           "named": true
         }
@@ -1646,6 +1665,10 @@
   },
   {
     "type": "DESC",
+    "named": false
+  },
+  {
+    "type": "DESCRIBE",
     "named": false
   },
   {

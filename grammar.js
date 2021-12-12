@@ -49,9 +49,15 @@ module.exports = grammar({
       seq(
         choice(
           $.select_statement,
+          $.describe_statement
         ),
         optional(";"),
       ),
+
+    /**
+      * Describe table
+      */
+    describe_statement: $ => seq(kw("DESCRIBE"), $.identifier),
 
     /** 
       * Statements and Clauses

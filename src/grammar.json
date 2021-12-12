@@ -17,6 +17,10 @@
             {
               "type": "SYMBOL",
               "name": "select_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "describe_statement"
             }
           ]
         },
@@ -31,6 +35,24 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "describe_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[dD][eE][sS][cC][rR][iI][bB][eE]"
+          },
+          "named": false,
+          "value": "DESCRIBE"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
         }
       ]
     },
