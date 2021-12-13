@@ -8,15 +8,12 @@ SELECT * FROM Incident I WHERE I.updatedtime > '2014-01-01T00:00:00Z'
 
 (source_file
   (select_statement
-    (select_clause
-      (keyword_select))
+    (select_clause)
     (from_clause
-      (keyword_from)
       (alias
         (identifier)
         (identifier)))
     (where_clause
-      (keyword_where)
       (comparison_condition
         (identifier)
         (string)))))
@@ -31,16 +28,12 @@ SELECT * FROM Incident AS I WHERE I.updatedtime > '2014-01-01T00:00:00Z'
 
 (source_file
   (select_statement
-    (select_clause
-      (keyword_select))
+    (select_clause)
     (from_clause
-      (keyword_from)
       (alias
         (identifier)
-        (keyword_as)
         (identifier)))
     (where_clause
-      (keyword_where)
       (comparison_condition
         (identifier)
         (string)))))

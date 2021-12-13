@@ -8,7 +8,6 @@ describe Incident
 
 (source_file
   (describe_statement
-    (keyword_describe)
     (identifier)))
 
 ================================================================================
@@ -21,5 +20,4 @@ describe Incident.Asset
 
 (source_file
   (describe_statement
-    (keyword_describe)
     (identifier)))

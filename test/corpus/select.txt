@@ -9,16 +9,13 @@ SELECT MIN(ID) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
 (source_file
   (select_statement
     (select_clause
-      (keyword_select)
       (built_in_function_expression
         (function)
         (arguments
           (identifier))))
     (from_clause
-      (keyword_from)
       (identifier))
     (where_clause
-      (keyword_where)
       (comparison_condition
         (identifier)
         (string)))))
@@ -34,15 +31,12 @@ SELECT COUNT(*) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
 (source_file
   (select_statement
     (select_clause
-      (keyword_select)
       (built_in_function_expression
         (function)
         (arguments)))
     (from_clause
-      (keyword_from)
       (identifier))
     (where_clause
-      (keyword_where)
       (comparison_condition
         (identifier)
         (string)))))
@@ -57,16 +51,13 @@ SELECT COUNT(1) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
 (source_file
   (select_statement
     (select_clause
-      (keyword_select)
       (built_in_function_expression
         (function)
         (arguments
           (integer))))
     (from_clause
-      (keyword_from)
       (identifier))
     (where_clause
-      (keyword_where)
       (comparison_condition
         (identifier)
         (string)))))
@@ -82,10 +73,8 @@ SELECT C.Name.First FROM Contact C;
 (source_file
   (select_statement
     (select_clause
-      (keyword_select)
       (identifier))
     (from_clause
-      (keyword_from)
       (alias
         (identifier)
         (identifier)))))
@@ -101,13 +90,10 @@ SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name
 (source_file
   (select_statement
     (select_clause
-      (keyword_select)
       (identifier))
     (from_clause
-      (keyword_from)
       (identifier))
     (where_clause
-      (keyword_where)
       (comparison_condition
         (identifier)
         (bind_param
@@ -127,18 +113,13 @@ BETWEEN '2016-12-06T06:00:00Z' AND '2016-12-06T06:05:00Z'
 (source_file
   (select_statement
     (select_clause
-      (keyword_select)
       (identifier))
     (from_clause
-      (keyword_from)
       (identifier))
     (where_clause
-      (keyword_where)
       (range_condition
         (identifier)
-        (keyword_between)
         (string)
-        (keyword_and)
         (string)))))
 
 ================================================================================
@@ -152,17 +133,13 @@ SELECT Contact FROM Contact WHERE Contact.Name.First LIKE 'Foo%'
 (source_file
   (select_statement
     (select_clause
-      (keyword_select)
       (identifier))
     (from_clause
-      (keyword_from)
       (identifier))
     (where_clause
-      (keyword_where)
       (pattern_matching_condition
         (like_condition
           (identifier)
-          (keyword_like)
           (string))))))
 
 ================================================================================
@@ -175,18 +152,12 @@ SELECT * FROM Incident WHERE updatedtime IS NOT NULL;
 
 (source_file
   (select_statement
-    (select_clause
-      (keyword_select))
+    (select_clause)
     (from_clause
-      (keyword_from)
       (identifier))
     (where_clause
-      (keyword_where)
       (null_condition
-        (identifier)
-        (keyword_is)
-        (keyword_not)
-        (keyword_null)))))
+        (identifier)))))
 
 ================================================================================
 SELECT statement with IS NOT NULL condition
@@ -198,15 +169,9 @@ SELECT * FROM Incident WHERE updatedtime IS NOT NULL;
 
 (source_file
   (select_statement
-    (select_clause
-      (keyword_select))
+    (select_clause)
     (from_clause
-      (keyword_from)
       (identifier))
     (where_clause
-      (keyword_where)
       (null_condition
-        (identifier)
-        (keyword_is)
-        (keyword_not)
-        (keyword_null)))))
+        (identifier)))))

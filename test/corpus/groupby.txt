@@ -11,7 +11,6 @@ GROUP BY ID
 (source_file
   (select_statement
     (select_clause
-      (keyword_select)
       (built_in_function_expression
         (function)
         (arguments
@@ -21,15 +20,12 @@ GROUP BY ID
         (arguments
           (identifier))))
     (from_clause
-      (keyword_from)
       (identifier))
     (where_clause
-      (keyword_where)
       (comparison_condition
         (identifier)
         (string)))
     (group_by_clause
-      (keyword_groupby)
       (identifier))))
 
 ================================================================================
@@ -46,7 +42,6 @@ GROUP BY ID, updatedtime
 (source_file
   (select_statement
     (select_clause
-      (keyword_select)
       (built_in_function_expression
         (function)
         (arguments
@@ -56,14 +51,11 @@ GROUP BY ID, updatedtime
         (arguments
           (identifier))))
     (from_clause
-      (keyword_from)
       (identifier))
     (where_clause
-      (keyword_where)
       (comparison_condition
         (identifier)
         (string)))
     (group_by_clause
-      (keyword_groupby)
       (identifier)
       (identifier))))
