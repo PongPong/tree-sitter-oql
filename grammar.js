@@ -1,31 +1,23 @@
 // Generate case insentitive match for SQL keyword
 // In case of multiple word keyword provide a seq matcher
-function kw(keyword) {
-  if (keyword.toUpperCase() != keyword) {
-    throw new Error(`Expected upper case keyword got ${keyword}`);
-  }
-  const words = keyword.split(" ");
-  const regExps = words.map(createCaseInsensitiveRegex);
-
-  if (regExps.length == 1) {
-    return alias(regExps[0], keyword);
-  } else {
-    return alias(seq(...regExps), keyword.replace(/ /g, "_"));
-  }
-}
-
-
-function createCaseInsensitiveRegex(word) {
-  return new RegExp(
-    word
-      .split("")
-      .map(letter => `[${letter.toLowerCase()}${letter.toUpperCase()}]`)
-      .join(""),
-  );
+function kw(keyword, aliasAsWord = true) {
+  let result = new RegExp(keyword
+    .split('')
+    .map((a) => {
+      const ca = a.charCodeAt(0);
+      if (ca >= 97 && ca <= 122) return `[${a}${a.toUpperCase()}]`;
+      if (ca >= 65 && ca <= 90) return `[${a.toLowerCase()}${a}]`;
+      return a;
+    })
+    .join('')
+  )
+  if (aliasAsWord) result = alias(result, keyword)
+  return result
 }
 
 module.exports = grammar({
   name: "oql",
+  // word: $ => $.identifier,
   extras: $ => [$.comment, /[\s\f\uFEFF\u2060\u200B]|\\\r?\n/],
   precedences: _$ => [
     [
@@ -183,12 +175,18 @@ module.exports = grammar({
         prec.left('logical_or', seq($._condition, kw("OR"), $._condition)),
       ),
     range_condition: $ =>
-      prec.left('between', seq($._expression, optional(kw('NOT')), kw('BETWEEN'), $._expression, 'AND', $._expression)),
+      prec.left(seq(
+        $._expression,
+        optional(kw("NOT")),
+        kw("BETWEEN"),
+        $._expression,
+        kw('AND'),
+        $._expression)),
     null_condition: $ =>
-      prec.left('null', choice(
+      prec.left(choice(
         $._expression, seq($._expression, kw("IS"), optional(kw("NOT")), kw("NULL")))),
     membership_condition: $ =>
-      prec.left('in',
+      prec.left(
         choice(
           seq($._expression, optional(kw("NOT")), kw("IN"),
             choice(
@@ -199,8 +197,14 @@ module.exports = grammar({
             commaSep1(choice($._expression_list, $._subquery)), ')')
         )
       ),
-    pattern_matching_condition: $ =>
-      prec.left('like', seq($._expression, optional(kw('NOT')), kw('LIKE'), $._expression)),
+    like_condition: $ =>
+      prec.left(seq($._expression, optional(kw('NOT')), kw('LIKE'), $._expression)),
+    regexp_condition: $ =>
+      prec.left(seq($._expression, optional(kw('NOT')), kw('REGEXP'), $._expression)),
+    pattern_matching_condition: $ => choice(
+      $.like_condition,
+      $.regexp_condition,
+    ),
     _condition: $ =>
       choice(
         $.comparison_condition,
@@ -211,24 +215,27 @@ module.exports = grammar({
         $.membership_condition,
       ),
     /** Expressions **/
-    simple_expression: $ =>
+    _simple_expression: $ =>
       choice(
         $.string,
         $._number,
         $.NULL,
       ),
-    function_call: $ =>
+    arguments: $ => seq(
+      "(",
+      optional(field("arguments", choice("*", commaSep1($._expression)))),
+      ")",
+    ),
+    built_in_function_expression: $ =>
       seq(
-        field("function", $.identifier),
-        "(",
-        optional(field("arguments", choice("*", commaSep1($._expression)))),
-        ")",
+        field("function", alias($.identifier, $.function)),
+        $.arguments
       ),
     _expression_list: $ => seq('(', commaSep1($._expression), ')'),
     _expression: $ =>
       choice(
-        $.simple_expression,
-        $.function_call,
+        $._simple_expression,
+        $.built_in_function_expression,
         $.bind_param,
         $.field_access,
         $.TRUE,

@@ -27,6 +27,10 @@
           "named": true
         },
         {
+          "type": "NULL",
+          "named": true
+        },
+        {
           "type": "TRUE",
           "named": true
         },
@@ -47,11 +51,11 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "built_in_function_expression",
           "named": true
         },
         {
-          "type": "function_call",
+          "type": "field_access",
           "named": true
         },
         {
@@ -59,7 +63,11 @@
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -69,6 +77,74 @@
     "type": "argument_reference",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "arguments",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "*",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "FALSE",
+            "named": true
+          },
+          {
+            "type": "NULL",
+            "named": true
+          },
+          {
+            "type": "TRUE",
+            "named": true
+          },
+          {
+            "type": "argument_reference",
+            "named": true
+          },
+          {
+            "type": "array_element_access",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bind_param",
+            "named": true
+          },
+          {
+            "type": "built_in_function_expression",
+            "named": true
+          },
+          {
+            "type": "field_access",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "array_element_access",
@@ -83,6 +159,10 @@
           "named": true
         },
         {
+          "type": "NULL",
+          "named": true
+        },
+        {
           "type": "TRUE",
           "named": true
         },
@@ -103,11 +183,11 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "built_in_function_expression",
           "named": true
         },
         {
-          "type": "function_call",
+          "type": "field_access",
           "named": true
         },
         {
@@ -115,7 +195,11 @@
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -153,6 +237,10 @@
           "named": true
         },
         {
+          "type": "NULL",
+          "named": true
+        },
+        {
           "type": "TRUE",
           "named": true
         },
@@ -173,11 +261,11 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "built_in_function_expression",
           "named": true
         },
         {
-          "type": "function_call",
+          "type": "field_access",
           "named": true
         },
         {
@@ -185,7 +273,11 @@
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -207,6 +299,32 @@
     }
   },
   {
+    "type": "built_in_function_expression",
+    "named": true,
+    "fields": {
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "function",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arguments",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comparison_condition",
     "named": true,
     "fields": {
@@ -216,6 +334,10 @@
         "types": [
           {
             "type": "FALSE",
+            "named": true
+          },
+          {
+            "type": "NULL",
             "named": true
           },
           {
@@ -239,11 +361,11 @@
             "named": true
           },
           {
-            "type": "field_access",
+            "type": "built_in_function_expression",
             "named": true
           },
           {
-            "type": "function_call",
+            "type": "field_access",
             "named": true
           },
           {
@@ -251,7 +373,11 @@
             "named": true
           },
           {
-            "type": "simple_expression",
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "string",
             "named": true
           }
         ]
@@ -307,6 +433,10 @@
             "named": true
           },
           {
+            "type": "NULL",
+            "named": true
+          },
+          {
             "type": "TRUE",
             "named": true
           },
@@ -327,6 +457,10 @@
             "named": true
           },
           {
+            "type": "built_in_function_expression",
+            "named": true
+          },
+          {
             "type": "field_access",
             "named": true
           },
@@ -335,15 +469,15 @@
             "named": true
           },
           {
-            "type": "function_call",
-            "named": true
-          },
-          {
             "type": "group_by_clause",
             "named": true
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "integer",
             "named": true
           },
           {
@@ -363,7 +497,7 @@
             "named": true
           },
           {
-            "type": "simple_expression",
+            "type": "string",
             "named": true
           },
           {
@@ -456,6 +590,10 @@
           "named": true
         },
         {
+          "type": "NULL",
+          "named": true
+        },
+        {
           "type": "TRUE",
           "named": true
         },
@@ -480,6 +618,10 @@
           "named": true
         },
         {
+          "type": "built_in_function_expression",
+          "named": true
+        },
+        {
           "type": "field_access",
           "named": true
         },
@@ -488,15 +630,15 @@
           "named": true
         },
         {
-          "type": "function_call",
-          "named": true
-        },
-        {
           "type": "group_by_clause",
           "named": true
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
           "named": true
         },
         {
@@ -516,7 +658,7 @@
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "string",
           "named": true
         },
         {
@@ -524,76 +666,6 @@
           "named": true
         }
       ]
-    }
-  },
-  {
-    "type": "function_call",
-    "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "*",
-            "named": false
-          },
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "FALSE",
-            "named": true
-          },
-          {
-            "type": "TRUE",
-            "named": true
-          },
-          {
-            "type": "argument_reference",
-            "named": true
-          },
-          {
-            "type": "array_element_access",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "bind_param",
-            "named": true
-          },
-          {
-            "type": "field_access",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "simple_expression",
-            "named": true
-          }
-        ]
-      },
-      "function": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
     }
   },
   {
@@ -606,6 +678,10 @@
       "types": [
         {
           "type": "FALSE",
+          "named": true
+        },
+        {
+          "type": "NULL",
           "named": true
         },
         {
@@ -629,11 +705,11 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "built_in_function_expression",
           "named": true
         },
         {
-          "type": "function_call",
+          "type": "field_access",
           "named": true
         },
         {
@@ -645,7 +721,11 @@
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -669,6 +749,10 @@
           "named": true
         },
         {
+          "type": "NULL",
+          "named": true
+        },
+        {
           "type": "TRUE",
           "named": true
         },
@@ -689,11 +773,11 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "built_in_function_expression",
           "named": true
         },
         {
-          "type": "function_call",
+          "type": "field_access",
           "named": true
         },
         {
@@ -701,11 +785,15 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
           "type": "join_type",
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "string",
           "named": true
         }
       ]
@@ -715,6 +803,65 @@
     "type": "join_type",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "like_condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "FALSE",
+          "named": true
+        },
+        {
+          "type": "NULL",
+          "named": true
+        },
+        {
+          "type": "TRUE",
+          "named": true
+        },
+        {
+          "type": "argument_reference",
+          "named": true
+        },
+        {
+          "type": "array_element_access",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bind_param",
+          "named": true
+        },
+        {
+          "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "field_access",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "limit_clause",
@@ -755,6 +902,10 @@
           "named": true
         },
         {
+          "type": "NULL",
+          "named": true
+        },
+        {
           "type": "TRUE",
           "named": true
         },
@@ -775,6 +926,10 @@
           "named": true
         },
         {
+          "type": "built_in_function_expression",
+          "named": true
+        },
+        {
           "type": "field_access",
           "named": true
         },
@@ -783,15 +938,15 @@
           "named": true
         },
         {
-          "type": "function_call",
-          "named": true
-        },
-        {
           "type": "group_by_clause",
           "named": true
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
           "named": true
         },
         {
@@ -811,7 +966,7 @@
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "string",
           "named": true
         },
         {
@@ -834,6 +989,10 @@
           "named": true
         },
         {
+          "type": "NULL",
+          "named": true
+        },
+        {
           "type": "TRUE",
           "named": true
         },
@@ -854,11 +1013,11 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "built_in_function_expression",
           "named": true
         },
         {
-          "type": "function_call",
+          "type": "field_access",
           "named": true
         },
         {
@@ -866,7 +1025,11 @@
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -885,6 +1048,10 @@
           "named": true
         },
         {
+          "type": "NULL",
+          "named": true
+        },
+        {
           "type": "TRUE",
           "named": true
         },
@@ -905,11 +1072,11 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "built_in_function_expression",
           "named": true
         },
         {
-          "type": "function_call",
+          "type": "field_access",
           "named": true
         },
         {
@@ -917,7 +1084,11 @@
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -951,47 +1122,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "FALSE",
+          "type": "like_condition",
           "named": true
         },
         {
-          "type": "TRUE",
-          "named": true
-        },
-        {
-          "type": "argument_reference",
-          "named": true
-        },
-        {
-          "type": "array_element_access",
-          "named": true
-        },
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "bind_param",
-          "named": true
-        },
-        {
-          "type": "field_access",
-          "named": true
-        },
-        {
-          "type": "function_call",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "simple_expression",
+          "type": "regexp_condition",
           "named": true
         }
       ]
@@ -1010,6 +1149,10 @@
           "named": true
         },
         {
+          "type": "NULL",
+          "named": true
+        },
+        {
           "type": "TRUE",
           "named": true
         },
@@ -1030,11 +1173,11 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "built_in_function_expression",
           "named": true
         },
         {
-          "type": "function_call",
+          "type": "field_access",
           "named": true
         },
         {
@@ -1042,7 +1185,70 @@
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "regexp_condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "FALSE",
+          "named": true
+        },
+        {
+          "type": "NULL",
+          "named": true
+        },
+        {
+          "type": "TRUE",
+          "named": true
+        },
+        {
+          "type": "argument_reference",
+          "named": true
+        },
+        {
+          "type": "array_element_access",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bind_param",
+          "named": true
+        },
+        {
+          "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "field_access",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -1058,6 +1264,10 @@
       "types": [
         {
           "type": "FALSE",
+          "named": true
+        },
+        {
+          "type": "NULL",
           "named": true
         },
         {
@@ -1085,11 +1295,11 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "built_in_function_expression",
           "named": true
         },
         {
-          "type": "function_call",
+          "type": "field_access",
           "named": true
         },
         {
@@ -1097,7 +1307,11 @@
           "named": true
         },
         {
-          "type": "simple_expression",
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -1137,29 +1351,6 @@
         },
         {
           "type": "where_clause",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "simple_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "NULL",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "string",
           "named": true
         }
       ]
@@ -1333,7 +1524,7 @@
     "named": false
   },
   {
-    "type": "GROUP_BY",
+    "type": "GROUP BY",
     "named": false
   },
   {
@@ -1389,11 +1580,15 @@
     "named": false
   },
   {
-    "type": "ORDER_BY",
+    "type": "ORDER BY",
     "named": false
   },
   {
     "type": "OUTER",
+    "named": false
+  },
+  {
+    "type": "REGEXP",
     "named": false
   },
   {
@@ -1422,6 +1617,10 @@
   },
   {
     "type": "comment",
+    "named": true
+  },
+  {
+    "type": "function",
     "named": true
   },
   {

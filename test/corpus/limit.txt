@@ -14,8 +14,7 @@ SELECT * FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z' LIMIT 200
     (where_clause
       (comparison_condition
         (identifier)
-        (simple_expression
-          (string))))
+          (string)))
     (limit_clause
       (integer))))
 
@@ -34,8 +33,7 @@ SELECT * FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z' OFFSET 20
     (where_clause
       (comparison_condition
         (identifier)
-        (simple_expression
-          (string))))
+          (string)))
     (limit_clause
       (integer))))
 
@@ -55,8 +53,7 @@ SELECT * FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z' LIMIT 200 OFFS
     (where_clause
       (comparison_condition
         (identifier)
-        (simple_expression
-          (string))))
+          (string)))
     (limit_clause
       (integer)
       (integer))))
@@ -77,8 +74,7 @@ SELECT * FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z' LIMIT 1,10
     (where_clause
       (comparison_condition
         (identifier)
-        (simple_expression
-          (string))))
+          (string)))
     (limit_clause
       (integer)
       (integer))))

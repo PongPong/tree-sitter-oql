@@ -15,8 +15,7 @@ SELECT * FROM Incident I WHERE I.updatedtime > '2014-01-01T00:00:00Z'
     (where_clause
       (comparison_condition
         (identifier)
-        (simple_expression
-          (string))))))
+          (string)))))
 
 
 ==============================
@@ -36,6 +35,5 @@ SELECT * FROM Incident AS I WHERE I.updatedtime > '2014-01-01T00:00:00Z'
     (where_clause
       (comparison_condition
         (identifier)
-        (simple_expression
-          (string))))))
+          (string)))))
 

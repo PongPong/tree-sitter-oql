@@ -1,5 +1,5 @@
 =====================================
-SELECT statement with plus expression
+SELECT statement with plus expression and null condition
 =====================================
 
 SELECT Contact.ID + 2
@@ -12,10 +12,57 @@ WHERE Contact.CreatedTime
     (select_clause
       (binary_expression
         (identifier)
-        (simple_expression
-          (integer))))
+          (integer)))
     (from_clause
       (identifier))
     (where_clause
       (null_condition
         (identifier)))))
+
+
+==================================
+SELECT statement with AND compound condition
+==================================
+
+SELECT Contact FROM Contact WHERE Contact.Name.First = 'first_name' AND Contact.Name.Last = 'last_name'
+---
+
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (identifier))
+    (where_clause
+      (compound_condition
+        (comparison_condition
+          (identifier)
+            (string))
+        (comparison_condition
+          (identifier)
+            (string))))))
+
+===================================
+SELECT statement with AND compound condiition and bind parameters
+===================================
+
+SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name AND Contact.Name.Last = &last_name
+---
+
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (identifier))
+    (where_clause
+      (compound_condition
+        (comparison_condition
+          (identifier)
+          (bind_param
+            (identifier)))
+        (comparison_condition
+          (identifier)
+          (bind_param
+            (identifier)))))))
+

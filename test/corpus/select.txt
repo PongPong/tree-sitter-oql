@@ -8,16 +8,15 @@ SELECT MIN(ID) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
 (source_file
   (select_statement
     (select_clause
-      (function_call
-        (identifier)
-        (identifier)))
+      (built_in_function_expression
+        (function)
+        (arguments (identifier))))
     (from_clause
       (identifier))
     (where_clause
       (comparison_condition
         (identifier)
-        (simple_expression
-          (string))))))
+          (string)))))
 
 
 ==================================
@@ -30,15 +29,15 @@ SELECT COUNT(*) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
 (source_file
   (select_statement
     (select_clause
-      (function_call
-        (identifier)))
+      (built_in_function_expression
+        (function)
+          (arguments)))
     (from_clause
       (identifier))
     (where_clause
       (comparison_condition
         (identifier)
-        (simple_expression
-          (string))))))
+          (string)))))
 
 
 ==================================
@@ -50,17 +49,16 @@ SELECT COUNT(1) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
 (source_file
   (select_statement
     (select_clause
-      (function_call
-        (identifier)
-        (simple_expression
-          (integer))))
+      (built_in_function_expression
+        (function)
+          (arguments
+            (integer))))
     (from_clause
       (identifier))
     (where_clause
       (comparison_condition
         (identifier)
-        (simple_expression
-          (string))))))
+          (string)))))
 
 
 =================================
@@ -98,54 +96,6 @@ SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name
         (bind_param
           (identifier))))))
 
-==================================
-SELECT statement with AND compound condition
-==================================
-
-SELECT Contact FROM Contact WHERE Contact.Name.First = 'first_name' AND Contact.Name.Last = 'last_name'
----
-
-(source_file
-  (select_statement
-    (select_clause
-      (identifier))
-    (from_clause
-      (identifier))
-    (where_clause
-      (compound_condition
-        (comparison_condition
-          (identifier)
-          (simple_expression
-            (string)))
-        (comparison_condition
-          (identifier)
-          (simple_expression
-            (string)))))))
-
-===================================
-SELECT statement with AND compound condiition and bind parameters
-===================================
-
-SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name AND Contact.Name.Last = &last_name
----
-
-(source_file
-  (select_statement
-    (select_clause
-      (identifier))
-    (from_clause
-      (identifier))
-    (where_clause
-      (compound_condition
-        (comparison_condition
-          (identifier)
-          (bind_param
-            (identifier)))
-        (comparison_condition
-          (identifier)
-          (bind_param
-            (identifier)))))))
-
 
 ==========================================
 SELECT statement with BETWEEN condition
@@ -166,10 +116,8 @@ BETWEEN '2016-12-06T06:00:00Z' AND '2016-12-06T06:05:00Z'
     (where_clause
       (range_condition
         (identifier)
-        (simple_expression
-          (string))
-        (simple_expression
-          (string))))))
+          (string)
+          (string)))))
 
 ========================================
 SELECT statement with LIKE condition
@@ -186,12 +134,12 @@ SELECT Contact FROM Contact WHERE Contact.Name.First LIKE 'Foo%'
       (identifier))
     (where_clause
       (pattern_matching_condition
-        (identifier)
-        (simple_expression
-          (string))))))
+        (like_condition
+          (identifier)
+            (string))))))
 
 ======================================
-SELECT statement with IS NOT NULL where clause
+SELECT statement with IS NULL condition
 =====================================
 
 SELECT * FROM Incident WHERE updatedtime IS NOT NULL;
@@ -205,4 +153,22 @@ SELECT * FROM Incident WHERE updatedtime IS NOT NULL;
     (where_clause
       (null_condition
         (identifier)))))
+
+
+======================================
+SELECT statement with IS NOT NULL condition
+=====================================
+
+SELECT * FROM Incident WHERE updatedtime IS NOT NULL;
+
+---
+(source_file
+  (select_statement
+    (select_clause)
+    (from_clause
+      (identifier))
+    (where_clause
+      (null_condition
+        (identifier)))))
+
 
