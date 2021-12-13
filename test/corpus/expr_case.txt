@@ -1,0 +1,24 @@
+================================================================================
+SELECT statement with CASE expression
+================================================================================
+
+SELECT AVG(CASE WHEN e.sal > 2000 THEN e.sal ELSE 2000 END) from emp e;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (built_in_function_expression
+        (function)
+        (arguments
+          (case_expression
+            (comparison_condition
+              (identifier)
+              (integer))
+            (identifier)
+            (integer)))))
+    (from_clause
+      (alias
+        (identifier)
+        (identifier)))))

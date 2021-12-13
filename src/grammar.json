@@ -537,6 +537,86 @@
       "named": false,
       "value": "CURSOR"
     },
+    "_keyword_case": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[Cc][Aa][Ss][Ee]"
+          }
+        }
+      },
+      "named": false,
+      "value": "CASE"
+    },
+    "_keyword_when": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[Ww][Hh][Ee][Nn]"
+          }
+        }
+      },
+      "named": false,
+      "value": "WHEN"
+    },
+    "_keyword_then": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[Tt][Hh][Ee][Nn]"
+          }
+        }
+      },
+      "named": false,
+      "value": "THEN"
+    },
+    "_keyword_else": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[Ee][Ll][Ss][Ee]"
+          }
+        }
+      },
+      "named": false,
+      "value": "ELSE"
+    },
+    "_keyword_end": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[Ee][Nn][Dd]"
+          }
+        }
+      },
+      "named": false,
+      "value": "END"
+    },
     "_statement": {
       "type": "SEQ",
       "members": [
@@ -2098,6 +2178,64 @@
         }
       ]
     },
+    "case_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_case"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_keyword_when"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_condition"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_keyword_then"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_keyword_else"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_end"
+        }
+      ]
+    },
     "aggregate_function": {
       "type": "CHOICE",
       "members": [
@@ -2381,6 +2519,10 @@
         {
           "type": "SYMBOL",
           "name": "argument_reference"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "case_expression"
         }
       ]
     }

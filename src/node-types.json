@@ -51,6 +51,10 @@
           "named": true
         },
         {
+          "type": "case_expression",
+          "named": true
+        },
+        {
           "type": "compound_expression",
           "named": true
         },
@@ -123,6 +127,10 @@
             "named": true
           },
           {
+            "type": "case_expression",
+            "named": true
+          },
+          {
             "type": "compound_expression",
             "named": true
           },
@@ -180,6 +188,10 @@
         },
         {
           "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "case_expression",
           "named": true
         },
         {
@@ -266,6 +278,97 @@
     }
   },
   {
+    "type": "case_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "FALSE",
+          "named": true
+        },
+        {
+          "type": "NULL",
+          "named": true
+        },
+        {
+          "type": "TRUE",
+          "named": true
+        },
+        {
+          "type": "argument_reference",
+          "named": true
+        },
+        {
+          "type": "array_element_access",
+          "named": true
+        },
+        {
+          "type": "bind_param",
+          "named": true
+        },
+        {
+          "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "case_expression",
+          "named": true
+        },
+        {
+          "type": "comparison_condition",
+          "named": true
+        },
+        {
+          "type": "compound_condition",
+          "named": true
+        },
+        {
+          "type": "compound_expression",
+          "named": true
+        },
+        {
+          "type": "cursor_expression",
+          "named": true
+        },
+        {
+          "type": "exists_condition",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "membership_condition",
+          "named": true
+        },
+        {
+          "type": "null_condition",
+          "named": true
+        },
+        {
+          "type": "pattern_matching_condition",
+          "named": true
+        },
+        {
+          "type": "range_condition",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comparison_condition",
     "named": true,
     "fields": {
@@ -299,6 +402,10 @@
           },
           {
             "type": "built_in_function_expression",
+            "named": true
+          },
+          {
+            "type": "case_expression",
             "named": true
           },
           {
@@ -395,6 +502,10 @@
           },
           {
             "type": "built_in_function_expression",
+            "named": true
+          },
+          {
+            "type": "case_expression",
             "named": true
           },
           {
@@ -522,6 +633,10 @@
         },
         {
           "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "case_expression",
           "named": true
         },
         {
@@ -681,6 +796,10 @@
           "named": true
         },
         {
+          "type": "case_expression",
+          "named": true
+        },
+        {
           "type": "compound_expression",
           "named": true
         },
@@ -770,6 +889,10 @@
         },
         {
           "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "case_expression",
           "named": true
         },
         {
@@ -875,6 +998,10 @@
           "named": true
         },
         {
+          "type": "case_expression",
+          "named": true
+        },
+        {
           "type": "compound_expression",
           "named": true
         },
@@ -940,6 +1067,10 @@
         },
         {
           "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "case_expression",
           "named": true
         },
         {
@@ -1025,6 +1156,10 @@
         },
         {
           "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "case_expression",
           "named": true
         },
         {
@@ -1115,6 +1250,10 @@
           "named": true
         },
         {
+          "type": "case_expression",
+          "named": true
+        },
+        {
           "type": "compound_expression",
           "named": true
         },
@@ -1171,6 +1310,10 @@
         },
         {
           "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "case_expression",
           "named": true
         },
         {
@@ -1275,6 +1418,10 @@
           "named": true
         },
         {
+          "type": "case_expression",
+          "named": true
+        },
+        {
           "type": "compound_expression",
           "named": true
         },
@@ -1331,6 +1478,10 @@
         },
         {
           "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "case_expression",
           "named": true
         },
         {
@@ -1394,6 +1545,10 @@
         },
         {
           "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "case_expression",
           "named": true
         },
         {
@@ -1618,6 +1773,10 @@
     "named": false
   },
   {
+    "type": "CASE",
+    "named": false
+  },
+  {
     "type": "COUNT",
     "named": false
   },
@@ -1643,6 +1802,14 @@
   },
   {
     "type": "DESCRIBE",
+    "named": false
+  },
+  {
+    "type": "ELSE",
+    "named": false
+  },
+  {
+    "type": "END",
     "named": false
   },
   {
@@ -1762,11 +1929,19 @@
     "named": false
   },
   {
+    "type": "THEN",
+    "named": false
+  },
+  {
     "type": "TRUE",
     "named": false
   },
   {
     "type": "UPPER",
+    "named": false
+  },
+  {
+    "type": "WHEN",
     "named": false
   },
   {

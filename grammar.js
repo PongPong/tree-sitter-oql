@@ -69,6 +69,11 @@ module.exports = grammar({
     _keyword_exists: _$ => kw("EXISTS"),
     _keyword_prior: _$ => kw("PRIOR"),
     _keyword_cursor: _$ => kw("CURSOR"),
+    _keyword_case: _$ => kw("CASE"),
+    _keyword_when: _$ => kw("WHEN"),
+    _keyword_then: _$ => kw("THEN"),
+    _keyword_else: _$ => kw("ELSE"),
+    _keyword_end: _$ => kw("END"),
 
     _statement: $ =>
       seq(
@@ -275,6 +280,13 @@ module.exports = grammar({
       optional(field("arguments", choice("*", commaSep1($._expression)))),
       ")",
     ),
+    case_expression: $ =>
+      seq(
+        $._keyword_case,
+        repeat1(seq($._keyword_when, $._condition, $._keyword_then, $._expression)),
+        optional(seq($._keyword_else, $._expression)),
+        $._keyword_end
+      ),
     aggregate_function: _$ =>
       choice(
         kw("MIN"),
@@ -307,6 +319,7 @@ module.exports = grammar({
         $.cursor_expression,
         $.array_element_access,
         $.argument_reference,
+        $.case_expression,
       ),
   },
 });
