@@ -275,6 +275,8 @@ module.exports = grammar({
         kw("STDDEV"),
         kw("CURRENT_TIME"),
         kw("CURRENT_DATE"),
+        kw("LOWER"),
+        kw("UPPER"),
       ),
     built_in_function_expression: $ =>
       seq(

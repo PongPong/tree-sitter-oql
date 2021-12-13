@@ -1666,6 +1666,10 @@
     "named": false
   },
   {
+    "type": "LOWER",
+    "named": false
+  },
+  {
     "type": "MAX",
     "named": false
   },
@@ -1723,6 +1727,10 @@
   },
   {
     "type": "TRUE",
+    "named": false
+  },
+  {
+    "type": "UPPER",
     "named": false
   },
   {
