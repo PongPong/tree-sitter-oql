@@ -55,6 +55,10 @@
           "named": true
         },
         {
+          "type": "cursor_expression",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -123,6 +127,10 @@
             "named": true
           },
           {
+            "type": "cursor_expression",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -176,6 +184,10 @@
         },
         {
           "type": "compound_expression",
+          "named": true
+        },
+        {
+          "type": "cursor_expression",
           "named": true
         },
         {
@@ -294,6 +306,10 @@
             "named": true
           },
           {
+            "type": "cursor_expression",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -383,6 +399,10 @@
           },
           {
             "type": "compound_expression",
+            "named": true
+          },
+          {
+            "type": "cursor_expression",
             "named": true
           },
           {
@@ -509,6 +529,10 @@
           "named": true
         },
         {
+          "type": "cursor_expression",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -518,6 +542,45 @@
         },
         {
           "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cursor_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "from_clause",
+          "named": true
+        },
+        {
+          "type": "group_by_clause",
+          "named": true
+        },
+        {
+          "type": "join_clause",
+          "named": true
+        },
+        {
+          "type": "limit_clause",
+          "named": true
+        },
+        {
+          "type": "order_by_clause",
+          "named": true
+        },
+        {
+          "type": "select_clause",
+          "named": true
+        },
+        {
+          "type": "where_clause",
           "named": true
         }
       ]
@@ -622,6 +685,10 @@
           "named": true
         },
         {
+          "type": "cursor_expression",
+          "named": true
+        },
+        {
           "type": "from_clause",
           "named": true
         },
@@ -707,6 +774,10 @@
         },
         {
           "type": "compound_expression",
+          "named": true
+        },
+        {
+          "type": "cursor_expression",
           "named": true
         },
         {
@@ -808,6 +879,10 @@
           "named": true
         },
         {
+          "type": "cursor_expression",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -869,6 +944,10 @@
         },
         {
           "type": "compound_expression",
+          "named": true
+        },
+        {
+          "type": "cursor_expression",
           "named": true
         },
         {
@@ -950,6 +1029,10 @@
         },
         {
           "type": "compound_expression",
+          "named": true
+        },
+        {
+          "type": "cursor_expression",
           "named": true
         },
         {
@@ -1036,6 +1119,10 @@
           "named": true
         },
         {
+          "type": "cursor_expression",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -1088,6 +1175,10 @@
         },
         {
           "type": "compound_expression",
+          "named": true
+        },
+        {
+          "type": "cursor_expression",
           "named": true
         },
         {
@@ -1188,6 +1279,10 @@
           "named": true
         },
         {
+          "type": "cursor_expression",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -1240,6 +1335,10 @@
         },
         {
           "type": "compound_expression",
+          "named": true
+        },
+        {
+          "type": "cursor_expression",
           "named": true
         },
         {
@@ -1299,6 +1398,10 @@
         },
         {
           "type": "compound_expression",
+          "named": true
+        },
+        {
+          "type": "cursor_expression",
           "named": true
         },
         {
@@ -1524,6 +1627,14 @@
   },
   {
     "type": "CURRENT_TIME",
+    "named": false
+  },
+  {
+    "type": "CURRENT_TIMESTAMP",
+    "named": false
+  },
+  {
+    "type": "CURSOR",
     "named": false
   },
   {

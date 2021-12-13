@@ -68,6 +68,7 @@ module.exports = grammar({
     _keyword_regexp: _$ => kw("REGEXP"),
     _keyword_exists: _$ => kw("EXISTS"),
     _keyword_prior: _$ => kw("PRIOR"),
+    _keyword_cursor: _$ => kw("CURSOR"),
 
     _statement: $ =>
       seq(
@@ -267,6 +268,8 @@ module.exports = grammar({
         ),
         seq($._expression, choice('*', '/', '+', '-', '||'), $._expression)
       )),
+    cursor_expression: $ =>
+      seq($._keyword_cursor, $._parenthesized_subquery),
     arguments: $ => seq(
       "(",
       optional(field("arguments", choice("*", commaSep1($._expression)))),
@@ -282,6 +285,7 @@ module.exports = grammar({
         kw("STDDEV"),
         kw("CURRENT_TIME"),
         kw("CURRENT_DATE"),
+        kw("CURRENT_TIMESTAMP"),
         kw("LOWER"),
         kw("UPPER"),
       ),
@@ -300,6 +304,7 @@ module.exports = grammar({
         $.FALSE,
         $.identifier,
         $.compound_expression,
+        $.cursor_expression,
         $.array_element_access,
         $.argument_reference,
       ),

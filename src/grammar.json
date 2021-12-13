@@ -521,6 +521,22 @@
       "named": false,
       "value": "PRIOR"
     },
+    "_keyword_cursor": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "PATTERN",
+            "value": "[Cc][Uu][Rr][Ss][Oo][Rr]"
+          }
+        }
+      },
+      "named": false,
+      "value": "CURSOR"
+    },
     "_statement": {
       "type": "SEQ",
       "members": [
@@ -2010,6 +2026,19 @@
         ]
       }
     },
+    "cursor_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_cursor"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_parenthesized_subquery"
+        }
+      ]
+    },
     "arguments": {
       "type": "SEQ",
       "members": [
@@ -2209,6 +2238,22 @@
               "value": 1,
               "content": {
                 "type": "PATTERN",
+                "value": "[Cc][Uu][Rr][Rr][Ee][Nn][Tt][__][Tt][Ii][Mm][Ee][Ss][Tt][Aa][Mm][Pp]"
+              }
+            }
+          },
+          "named": false,
+          "value": "CURRENT_TIMESTAMP"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
                 "value": "[Ll][Oo][Ww][Ee][Rr]"
               }
             }
@@ -2324,6 +2369,10 @@
         {
           "type": "SYMBOL",
           "name": "compound_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cursor_expression"
         },
         {
           "type": "SYMBOL",
