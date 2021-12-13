@@ -1,61 +1,69 @@
-==================================
+================================================================================
 SELECT statement with GROUP BY one field
-==================================
+================================================================================
 SELECT COUNT(1), MAX(ID)
 FROM Incident
 WHERE updatedtime > '2014-01-01T00:00:00Z'
 GROUP BY ID
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (built_in_function_expression
         (function)
         (arguments
           (integer)))
       (built_in_function_expression
-         (function)
-            (arguments
-              (identifier))))
+        (function)
+        (arguments
+          (identifier))))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (comparison_condition
         (identifier)
-          (string)))
+        (string)))
     (group_by_clause
-        (identifier))))
+      (keyword_groupby)
+      (identifier))))
 
-==================================
+================================================================================
 SELECT statement with GROUP BY two fields
-==================================
+================================================================================
 
 SELECT COUNT(1), MAX(ID)
 FROM Incident
 WHERE updatedtime > '2014-01-01T00:00:00Z'
 GROUP BY ID, updatedtime
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (built_in_function_expression
         (function)
         (arguments
-            (integer)))
+          (integer)))
       (built_in_function_expression
-         (function)
-            (arguments
-              (identifier))))
+        (function)
+        (arguments
+          (identifier))))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (comparison_condition
         (identifier)
-          (string)))
+        (string)))
     (group_by_clause
+      (keyword_groupby)
       (identifier)
       (identifier))))

@@ -1,68 +1,77 @@
-=====================================
+================================================================================
 SELECT statement with plus expression and null condition
-=====================================
+================================================================================
 
 SELECT Contact.ID + 2
 FROM Contact 
 WHERE Contact.CreatedTime 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (binary_expression
         (identifier)
-          (integer)))
+        (integer)))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (null_condition
         (identifier)))))
 
-
-==================================
+================================================================================
 SELECT statement with AND compound condition
-==================================
+================================================================================
 
 SELECT Contact FROM Contact WHERE Contact.Name.First = 'first_name' AND Contact.Name.Last = 'last_name'
----
+--------------------------------------------------------------------------------
 
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (identifier))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (compound_condition
         (comparison_condition
           (identifier)
-            (string))
+          (string))
+        (keyword_and)
         (comparison_condition
           (identifier)
-            (string))))))
+          (string))))))
 
-===================================
+================================================================================
 SELECT statement with AND compound condiition and bind parameters
-===================================
+================================================================================
 
 SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name AND Contact.Name.Last = &last_name
----
+--------------------------------------------------------------------------------
 
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (identifier))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (compound_condition
         (comparison_condition
           (identifier)
           (bind_param
             (identifier)))
+        (keyword_and)
         (comparison_condition
           (identifier)
           (bind_param
             (identifier)))))))
-

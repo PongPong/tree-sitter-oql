@@ -1,174 +1,212 @@
-=================================
+================================================================================
 SELECT statement with MIN function
-=================================
+================================================================================
 
 SELECT MIN(ID) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (built_in_function_expression
         (function)
-        (arguments (identifier))))
+        (arguments
+          (identifier))))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (comparison_condition
         (identifier)
-          (string)))))
+        (string)))))
 
-
-==================================
+================================================================================
 SELECT statement with COUNT(*) function
-==================================
+================================================================================
 
 SELECT COUNT(*) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (built_in_function_expression
         (function)
-          (arguments)))
+        (arguments)))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (comparison_condition
         (identifier)
-          (string)))))
+        (string)))))
 
-
-==================================
+================================================================================
 SELECT statement with COUNT(1) function
-==================================
+================================================================================
 
 SELECT COUNT(1) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (built_in_function_expression
         (function)
-          (arguments
-            (integer))))
+        (arguments
+          (integer))))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (comparison_condition
         (identifier)
-          (string)))))
+        (string)))))
 
-
-=================================
+================================================================================
 SELECT statement with field in Name sub-object in Contact object alias
-=================================
+================================================================================
 
 SELECT C.Name.First FROM Contact C;
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (identifier))
     (from_clause
+      (keyword_from)
       (alias
         (identifier)
         (identifier)))))
 
-==================================
+================================================================================
 SELECT statement with bind parameters
-==================================
+================================================================================
 
 SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (identifier))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (comparison_condition
         (identifier)
         (bind_param
           (identifier))))))
 
-
-==========================================
+================================================================================
 SELECT statement with BETWEEN condition
-==========================================
+================================================================================
 
 SELECT Contact.CreatedTime 
 FROM Contact 
 WHERE Contact.CreatedTime 
 BETWEEN '2016-12-06T06:00:00Z' AND '2016-12-06T06:05:00Z'
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (identifier))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (range_condition
         (identifier)
-          (string)
-          (string)))))
+        (keyword_between)
+        (string)
+        (keyword_and)
+        (string)))))
 
-========================================
+================================================================================
 SELECT statement with LIKE condition
-========================================
+================================================================================
 
 SELECT Contact FROM Contact WHERE Contact.Name.First LIKE 'Foo%'
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
     (select_clause
+      (keyword_select)
       (identifier))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (pattern_matching_condition
         (like_condition
           (identifier)
-            (string))))))
+          (keyword_like)
+          (string))))))
 
-======================================
+================================================================================
 SELECT statement with IS NULL condition
-=====================================
+================================================================================
 
 SELECT * FROM Incident WHERE updatedtime IS NOT NULL;
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
-    (select_clause)
+    (select_clause
+      (keyword_select))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (null_condition
-        (identifier)))))
+        (identifier)
+        (keyword_is)
+        (keyword_not)
+        (keyword_null)))))
 
-
-======================================
+================================================================================
 SELECT statement with IS NOT NULL condition
-=====================================
+================================================================================
 
 SELECT * FROM Incident WHERE updatedtime IS NOT NULL;
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
-    (select_clause)
+    (select_clause
+      (keyword_select))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (null_condition
-        (identifier)))))
-
-
+        (identifier)
+        (keyword_is)
+        (keyword_not)
+        (keyword_null)))))

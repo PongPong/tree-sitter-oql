@@ -1,80 +1,98 @@
-==================================
+================================================================================
 SELECT statement with LIMIT only
-==================================
+================================================================================
 
 SELECT * FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z' LIMIT 200
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (select_statement
-    (select_clause)
+    (select_clause
+      (keyword_select))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (comparison_condition
         (identifier)
-          (string)))
+        (string)))
     (limit_clause
+      (keyword_limit)
       (integer))))
 
-==================================
+================================================================================
 SELECT statement with OFFSET only
-==================================
+================================================================================
 
 SELECT * FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z' OFFSET 20
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
-    (select_clause)
+    (select_clause
+      (keyword_select))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (comparison_condition
         (identifier)
-          (string)))
+        (string)))
     (limit_clause
+      (keyword_offset)
       (integer))))
 
-
-==================================
+================================================================================
 SELECT statement with LIMIT and OFFSET
-==================================
+================================================================================
 
 SELECT * FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z' LIMIT 200 OFFSET 20
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
-    (select_clause)
+    (select_clause
+      (keyword_select))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (comparison_condition
         (identifier)
-          (string)))
+        (string)))
     (limit_clause
+      (keyword_limit)
       (integer)
+      (keyword_offset)
       (integer))))
 
-
-==================================
+================================================================================
 SELECT statement with LIMIT ([offet,]limit)
-==================================
+================================================================================
 
 SELECT * FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z' LIMIT 1,10
 
----
+--------------------------------------------------------------------------------
+
 (source_file
   (select_statement
-    (select_clause)
+    (select_clause
+      (keyword_select))
     (from_clause
+      (keyword_from)
       (identifier))
     (where_clause
+      (keyword_where)
       (comparison_condition
         (identifier)
-          (string)))
+        (string)))
     (limit_clause
+      (keyword_limit)
       (integer)
       (integer))))

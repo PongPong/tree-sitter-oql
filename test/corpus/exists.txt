@@ -1,0 +1,60 @@
+==========================================
+SELECT statement with EXISTS condition
+=========================================
+
+SELECT C.ID FROM Contact C WHERE EXISTS (SELECT * FROM DUAL)
+
+---
+
+(source_file
+  (select_statement
+    (select_clause
+      (keyword_select)
+      (identifier))
+    (from_clause
+      (keyword_from)
+      (alias
+        (identifier)
+        (identifier)))
+    (where_clause
+      (keyword_where)
+      (exists_condition
+        (keyword_exists)
+        (select_clause
+          (keyword_select))
+        (from_clause
+          (keyword_from)
+          (identifier))))))
+
+
+
+==========================================
+SELECT statement with NOT EXISTS condition
+=========================================
+
+SELECT C.ID FROM Contact C WHERE NOT EXISTS (SELECT * FROM DUAL)
+
+---
+
+(source_file
+  (select_statement
+    (select_clause
+      (keyword_select)
+      (identifier))
+    (from_clause
+      (keyword_from)
+      (alias
+        (identifier)
+        (identifier)))
+    (where_clause
+      (keyword_where)
+      (compound_condition
+        (keyword_not)
+        (exists_condition
+          (keyword_exists)
+          (select_clause
+            (keyword_select))
+          (from_clause
+            (keyword_from)
+            (identifier)))))))
+
