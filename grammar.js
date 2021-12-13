@@ -269,7 +269,12 @@ module.exports = grammar({
       choice(
         kw("MIN"),
         kw("MAX"),
-        kw("COUNT")
+        kw("COUNT"),
+        kw("AVG"),
+        kw("SUM"),
+        kw("STDDEV"),
+        kw("CURRENT_TIME"),
+        kw("CURRENT_DATE"),
       ),
     built_in_function_expression: $ =>
       seq(

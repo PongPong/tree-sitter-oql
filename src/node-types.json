@@ -1923,11 +1923,23 @@
     "named": false
   },
   {
+    "type": "AVG",
+    "named": false
+  },
+  {
     "type": "BETWEEN",
     "named": false
   },
   {
     "type": "COUNT",
+    "named": false
+  },
+  {
+    "type": "CURRENT_DATE",
+    "named": false
+  },
+  {
+    "type": "CURRENT_TIME",
     "named": false
   },
   {
@@ -2036,6 +2048,14 @@
   },
   {
     "type": "SELECT",
+    "named": false
+  },
+  {
+    "type": "STDDEV",
+    "named": false
+  },
+  {
+    "type": "SUM",
     "named": false
   },
   {

@@ -2073,6 +2073,86 @@
           },
           "named": false,
           "value": "COUNT"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[Aa][Vv][Gg]"
+              }
+            }
+          },
+          "named": false,
+          "value": "AVG"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[Ss][Uu][Mm]"
+              }
+            }
+          },
+          "named": false,
+          "value": "SUM"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[Ss][Tt][Dd][Dd][Ee][Vv]"
+              }
+            }
+          },
+          "named": false,
+          "value": "STDDEV"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[Cc][Uu][Rr][Rr][Ee][Nn][Tt][__][Tt][Ii][Mm][Ee]"
+              }
+            }
+          },
+          "named": false,
+          "value": "CURRENT_TIME"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "[Cc][Uu][Rr][Rr][Ee][Nn][Tt][__][Dd][Aa][Tt][Ee]"
+              }
+            }
+          },
+          "named": false,
+          "value": "CURRENT_DATE"
         }
       ]
     },
