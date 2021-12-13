@@ -1,25 +1,4 @@
 ================================================================================
-SELECT statement with plus expression and null condition
-================================================================================
-
-SELECT Contact.ID + 2
-FROM Contact 
-WHERE Contact.CreatedTime 
---------------------------------------------------------------------------------
-
-(source_file
-  (select_statement
-    (select_clause
-      (compound_expression
-        (identifier)
-        (integer)))
-    (from_clause
-      (identifier))
-    (where_clause
-      (null_condition
-        (identifier)))))
-
-================================================================================
 SELECT statement with AND compound condition
 ================================================================================
 
