@@ -59,3 +59,40 @@ GROUP BY ID, updatedtime
     (group_by_clause
       (identifier)
       (identifier))))
+
+================================================================================
+SELECT statement with GROUP BY two fields HAVING clause
+================================================================================
+
+SELECT COUNT(1), MAX(ID)
+FROM Incident
+WHERE updatedtime > '2014-01-01T00:00:00Z'
+GROUP BY ID, updatedtime
+HAVING ID > 50
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (built_in_function_expression
+        (function)
+        (arguments
+          (integer)))
+      (built_in_function_expression
+        (function)
+        (arguments
+          (identifier))))
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (string)))
+    (group_by_clause
+      (identifier)
+      (identifier)
+      (having_condition
+        (comparison_condition
+          (identifier)
+          (integer))))))
