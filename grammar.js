@@ -14,7 +14,7 @@ module.exports = grammar({
   name: "oql",
   word: $ => $.identifier,
   extras: $ => [$.comment, /[\s\f\uFEFF\u2060\u200B]|\\\r?\n/],
-  precedences: _$ => [
+  precedences: $ => [
     [
       'string',
       'comment',
@@ -30,7 +30,8 @@ module.exports = grammar({
       'like',
       'or',
       'assignment'
-    ]
+    ],
+    [$.compound_expression, $._expression_list]
   ],
   rules: {
     source_file: $ => repeat($._statement),
@@ -66,6 +67,7 @@ module.exports = grammar({
     _keyword_like: _$ => kw("LIKE"),
     _keyword_regexp: _$ => kw("REGEXP"),
     _keyword_exists: _$ => kw("EXISTS"),
+    _keyword_prior: _$ => kw("PRIOR"),
 
     _statement: $ =>
       seq(
@@ -159,7 +161,6 @@ module.exports = grammar({
       ),
     bind_param: $ =>
       seq('&', $.identifier),
-    field_access: $ => seq($.identifier, "->>", $.string),
     ordered_expression: $ =>
       seq($._expression, field("order", choice($._keyword_asc, $._keyword_desc))),
     _type_alias: $ => alias($.identifier, $.type),
@@ -172,13 +173,6 @@ module.exports = grammar({
       ),
     array_element_access: $ =>
       seq(choice($.identifier, $.argument_reference), "[", $._expression, "]"),
-    binary_expression: $ =>
-      prec.left(
-        choice(
-          seq($._expression, "~", $._expression),
-          seq($._expression, "+", $._expression),
-        ),
-      ),
     argument_reference: _$ => seq("$", /\d+/),
     /** 
      * Conditions specifies a combination of one or more expressions and 
@@ -260,6 +254,19 @@ module.exports = grammar({
         $._number,
         $.NULL,
       ),
+    compound_expression: $ =>
+      prec.left(choice(
+        seq('(', $._expression, ')'),
+        seq(
+          choice(
+            '+',
+            '-',
+            $._keyword_prior
+          ),
+          $._expression
+        ),
+        seq($._expression, choice('*', '/', '+', '-', '||'), $._expression)
+      )),
     arguments: $ => seq(
       "(",
       optional(field("arguments", choice("*", commaSep1($._expression)))),
@@ -289,11 +296,10 @@ module.exports = grammar({
         $._simple_expression,
         $.built_in_function_expression,
         $.bind_param,
-        $.field_access,
         $.TRUE,
         $.FALSE,
         $.identifier,
-        $.binary_expression,
+        $.compound_expression,
         $.array_element_access,
         $.argument_reference,
       ),

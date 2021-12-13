@@ -1,0 +1,23 @@
+================================================================================
+SELECT statement with BETWEEN condition
+================================================================================
+
+SELECT Contact.CreatedTime 
+FROM Contact 
+WHERE Contact.CreatedTime 
+BETWEEN '2016-12-06T06:00:00Z' AND '2016-12-06T06:05:00Z'
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (identifier))
+    (where_clause
+      (range_condition
+        (identifier)
+        (string)
+        (string)))))
+

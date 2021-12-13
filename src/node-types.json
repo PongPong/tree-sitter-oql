@@ -43,10 +43,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -55,7 +51,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -115,10 +111,6 @@
             "named": true
           },
           {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
             "type": "bind_param",
             "named": true
           },
@@ -127,7 +119,7 @@
             "named": true
           },
           {
-            "type": "field_access",
+            "type": "compound_expression",
             "named": true
           },
           {
@@ -175,10 +167,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -187,7 +175,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -219,65 +207,6 @@
         },
         {
           "type": "type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "binary_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "FALSE",
-          "named": true
-        },
-        {
-          "type": "NULL",
-          "named": true
-        },
-        {
-          "type": "TRUE",
-          "named": true
-        },
-        {
-          "type": "argument_reference",
-          "named": true
-        },
-        {
-          "type": "array_element_access",
-          "named": true
-        },
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "bind_param",
-          "named": true
-        },
-        {
-          "type": "built_in_function_expression",
-          "named": true
-        },
-        {
-          "type": "field_access",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "string",
           "named": true
         }
       ]
@@ -353,10 +282,6 @@
             "named": true
           },
           {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
             "type": "bind_param",
             "named": true
           },
@@ -365,7 +290,7 @@
             "named": true
           },
           {
-            "type": "field_access",
+            "type": "compound_expression",
             "named": true
           },
           {
@@ -449,10 +374,6 @@
             "named": true
           },
           {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
             "type": "bind_param",
             "named": true
           },
@@ -461,7 +382,7 @@
             "named": true
           },
           {
-            "type": "field_access",
+            "type": "compound_expression",
             "named": true
           },
           {
@@ -548,6 +469,61 @@
     }
   },
   {
+    "type": "compound_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "FALSE",
+          "named": true
+        },
+        {
+          "type": "NULL",
+          "named": true
+        },
+        {
+          "type": "TRUE",
+          "named": true
+        },
+        {
+          "type": "argument_reference",
+          "named": true
+        },
+        {
+          "type": "array_element_access",
+          "named": true
+        },
+        {
+          "type": "bind_param",
+          "named": true
+        },
+        {
+          "type": "built_in_function_expression",
+          "named": true
+        },
+        {
+          "type": "compound_expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "describe_statement",
     "named": true,
     "fields": {},
@@ -602,25 +578,6 @@
     }
   },
   {
-    "type": "field_access",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "from_clause",
     "named": true,
     "fields": {},
@@ -653,10 +610,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -665,7 +618,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -745,10 +698,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -757,7 +706,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -847,10 +796,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -859,7 +804,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -915,10 +860,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -927,7 +868,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -1000,10 +941,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -1012,7 +949,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -1087,10 +1024,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -1099,7 +1032,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -1146,10 +1079,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -1158,7 +1087,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -1247,10 +1176,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -1259,7 +1184,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -1306,10 +1231,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -1318,7 +1239,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -1369,10 +1290,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bind_param",
           "named": true
         },
@@ -1381,7 +1298,7 @@
           "named": true
         },
         {
-          "type": "field_access",
+          "type": "compound_expression",
           "named": true
         },
         {
@@ -1542,7 +1459,11 @@
     "named": false
   },
   {
-    "type": "->>",
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "/",
     "named": false
   },
   {
@@ -1706,6 +1627,10 @@
     "named": false
   },
   {
+    "type": "PRIOR",
+    "named": false
+  },
+  {
     "type": "REGEXP",
     "named": false
   },
@@ -1762,7 +1687,7 @@
     "named": true
   },
   {
-    "type": "~",
+    "type": "||",
     "named": false
   }
 ]

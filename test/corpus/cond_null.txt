@@ -1,37 +1,33 @@
 ================================================================================
-SELECT statement with field in Name sub-object in Contact object alias
+SELECT statement with IS NULL condition
 ================================================================================
 
-SELECT C.Name.First FROM Contact C;
+SELECT * FROM Incident WHERE updatedtime IS NOT NULL;
 
 --------------------------------------------------------------------------------
 
 (source_file
   (select_statement
-    (select_clause
-      (identifier))
-    (from_clause
-      (alias
-        (identifier)
-        (identifier)))))
-
-================================================================================
-SELECT statement with bind parameters
-================================================================================
-
-SELECT Contact FROM Contact WHERE Contact.Name.First = &first_name
-
---------------------------------------------------------------------------------
-
-(source_file
-  (select_statement
-    (select_clause
-      (identifier))
+    (select_clause)
     (from_clause
       (identifier))
     (where_clause
-      (comparison_condition
-        (identifier)
-        (bind_param
-          (identifier))))))
+      (null_condition
+        (identifier)))))
 
+================================================================================
+SELECT statement with IS NOT NULL condition
+================================================================================
+
+SELECT * FROM Incident WHERE updatedtime IS NOT NULL;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause)
+    (from_clause
+      (identifier))
+    (where_clause
+      (null_condition
+        (identifier)))))

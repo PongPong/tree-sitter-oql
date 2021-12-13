@@ -1,0 +1,20 @@
+================================================================================
+SELECT statement with LIKE condition
+================================================================================
+
+SELECT Contact FROM Contact WHERE Contact.Name.First LIKE 'Foo%'
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (identifier))
+    (where_clause
+      (pattern_matching_condition
+        (like_condition
+          (identifier)
+          (string))))))
+

@@ -10,7 +10,7 @@ WHERE Contact.CreatedTime
 (source_file
   (select_statement
     (select_clause
-      (binary_expression
+      (compound_expression
         (identifier)
         (integer)))
     (from_clause

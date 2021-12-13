@@ -1,0 +1,64 @@
+================================================================================
+SELECT statement with MIN function
+================================================================================
+
+SELECT MIN(ID) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (built_in_function_expression
+        (function)
+        (arguments
+          (identifier))))
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (string)))))
+
+================================================================================
+SELECT statement with COUNT(*) function
+================================================================================
+
+SELECT COUNT(*) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (built_in_function_expression
+        (function)
+        (arguments)))
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (string)))))
+
+================================================================================
+SELECT statement with COUNT(1) function
+================================================================================
+
+SELECT COUNT(1) FROM Incident WHERE updatedtime > '2014-01-01T00:00:00Z'
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (built_in_function_expression
+        (function)
+        (arguments
+          (integer))))
+    (from_clause
+      (identifier))
+    (where_clause
+      (comparison_condition
+        (identifier)
+        (string)))))
+
