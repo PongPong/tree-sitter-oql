@@ -2,6 +2,8 @@
 
 OQL grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter). For OQL, see [tree-sitter-oql](https://github.com/pongpong/tree-sitter-oql).
 
+Support select statement only, and for my personal study, PRs are welcome.
+
 [tree-sitter]: https://github.com/tree-sitter/tree-sitter
 [tree-sitter-oql]: https://github.com/PongPong/tree-sitter-oql
 
