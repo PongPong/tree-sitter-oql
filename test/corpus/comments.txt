@@ -1,0 +1,109 @@
+================================================================================
+SELECT statement with block comments on the top
+================================================================================
+
+/** test comments */
+SELECT C.Name.First FROM Contact C;
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (alias
+        (identifier)
+        (identifier)))))
+
+================================================================================
+SELECT statement with block comments at the bottom
+================================================================================
+
+SELECT C.Name.First FROM Contact C;
+/** test comments */
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (alias
+        (identifier)
+        (identifier))))
+  (comment))
+
+================================================================================
+SELECT statement with block comments inline
+================================================================================
+
+SELECT C.Name.First 
+/** test comments */
+FROM Contact C;
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (comment)
+    (from_clause
+      (alias
+        (identifier)
+        (identifier)))))
+
+================================================================================
+SELECT statement with linewise comments on the top
+================================================================================
+
+-- test comments 
+SELECT C.Name.First FROM Contact C;
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (alias
+        (identifier)
+        (identifier)))))
+
+================================================================================
+SELECT statement with linewise comments at the bottom
+================================================================================
+
+SELECT C.Name.First FROM Contact C;
+-- test comments
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (from_clause
+      (alias
+        (identifier)
+        (identifier))))
+  (comment))
+
+================================================================================
+SELECT statement with linewise comments inline
+================================================================================
+
+SELECT C.Name.First 
+-- test comments
+FROM Contact C;
+--------------------------------------------------------------------------------
+
+(source_file
+  (select_statement
+    (select_clause
+      (identifier))
+    (comment)
+    (from_clause
+      (alias
+        (identifier)
+        (identifier)))))
